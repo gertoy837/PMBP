@@ -11,8 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wali_santris', function (Blueprint $table) {
+        Schema::create('wali_santri', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_ayah', 100);
+            $table->string('tmp_lahir_a', 100);
+            $table->date('tgl_lahir_a');
+            $table->string('no_hp_a');
+            $table->string('pkj_a');
+            $table->string('phs_a');
+            $table->string('nama_ibu', 100);
+            $table->string('tmp_lahir_i', 100);
+            $table->date('tgl_lahir_i');
+            $table->string('no_hp_i');
+            $table->string('pkj_i');
+            $table->string('phs_i');
+            $table->string('alamat');
+            $table->unsignedBigInteger('santri_id');
+            $table->foreign('santri_id')->references('id')->on('santri');
             $table->timestamps();
         });
     }
@@ -22,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wali_santris');
+        Schema::dropIfExists('wali_santri');
     }
 };

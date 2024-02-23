@@ -11,8 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('santris', function (Blueprint $table) {
+        Schema::create('santri', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('nik');
+            $table->bigInteger('nisn');
+            $table->string('nama_lengkap');
+            $table->string('nama_panggil');
+            $table->string('tmp_lahir');
+            $table->date('tgl_lahir');
+            $table->string('no_hp');
+            $table->string('kk');
+            $table->string('foto');
+            $table->string('ijazah');
+            $table->string('rapot');
+            $table->unsignedBigInteger('gel_id');
+            $table->foreign('gel_id')->references('id')->on('gelombang');
             $table->timestamps();
         });
     }
@@ -22,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('santris');
+        Schema::dropIfExists('santri');
     }
 };

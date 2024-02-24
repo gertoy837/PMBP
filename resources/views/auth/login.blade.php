@@ -82,8 +82,8 @@
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                             <div class="card card-plain mt-4">
                                 <a href="{{ url('/') }}">
-                                    <img src="{{ asset('dist') }}/login/assets/photo_2023-12-28_08-45-25-removebg-preview.png" alt=""
-                                        width="50%" style="margin-left: 8rem;">
+                                    <img src="{{ asset('dist') }}/login/assets/photo_2023-12-28_08-45-25-removebg-preview.png"
+                                        alt="" width="50%" style="margin-left: 8rem;">
                                 </a>
                                 <div class="card-header pb-0 text-left bg-transparent mt-3">
                                     <h3 class="">PMBP - PeTIK <br>Gelombang 1 Dan 2</h3>
@@ -102,10 +102,10 @@
                                             <input type="password" class="form-control" placeholder="Password"
                                                 name="pass">
                                         </div>
-                                        <!-- <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                      <label class="form-check-label" for="rememberMe">Ingatkan Saya</label>
-                    </div> -->
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                                            <label class="form-check-label" for="rememberMe">Ingatkan Saya</label>
+                                        </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2"
                                                 name="masuk">Masuk</button>
@@ -123,7 +123,8 @@
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8 ">
                                 <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6 mb-5"
-                                    style="background-image:url({{ asset('dist') }}/login/assets/bg.png); background-position:0rem;"></div>
+                                    style="background-image:url({{ asset('dist') }}/login/assets/bg.png); background-position:0rem;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,8 +132,8 @@
             </div>
         </section>
     </main>
-    <footer class="footer mb-5" style="margin-right: 1rem;">
-        <div class="col-lg-8 mx-auto text-center mb-4 mt-4">
+    <footer class="footer" style="margin-right: 1rem;">
+        <div class="col-lg-8 mx-auto text-center mt-3">
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
                 <span class="text-lg fab fa-chrome"></span>
             </a>

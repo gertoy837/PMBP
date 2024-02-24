@@ -118,11 +118,9 @@
                                     width="30%">
                                 </div>
                                 <form method="post" enctype="multipart/form-data">
-                                    <div class="float-end">
-                                        <a href="{{ url('/') }}"><button type="button" class="btn bg-gradient-dark"><i class="fa fa-caret-left"></i> back</button></a>
-                                    </div>
                                     <div class="row">
-                                        <div class="mb-3">
+                                        <div class="">
+                                            <a href="{{ url('/') }}"><button type="button" class="btn bg-gradient-dark float-end"><i class="fa fa-caret-left"></i> back</button></a>
                                             <h5><span style="border: 2px solid #344767" class="me-2"></span>Registrasi Akun</h5>
                                         </div>
                                         <div class="col-6">
@@ -145,7 +143,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="mt-3 mb-3">
+                                        <div class="mt-4 mb-3">
                                             <h5><span style="border: 2px solid #344767" class="me-2"></span>Data Santri</h5>
                                         </div>
                                         <div class="col-12">
@@ -348,7 +346,7 @@
             </div>
         </div>
     </section>
-    <footer class="footer mt-7 mb-4">
+    <footer class="footer mb-4">
         <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
             <a href="#" class="text-secondary me-xl-4 me-4">
                 <span class="text-lg fab fa-chrome"></span>

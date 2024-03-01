@@ -18,7 +18,7 @@ class Santri extends Model
     }
 
     public function wali_santri() {
-        return $this->hasMany(Wali_santri::class, 'santri_id', 'id');
+        return $this->hasOne(Wali_santri::class, 'santri_id', 'id');
     }
 }
 

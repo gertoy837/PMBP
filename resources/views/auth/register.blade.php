@@ -114,14 +114,18 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 mb-4" style="text-align:center;">
-                                    <img src="{{ asset('dist') }}/login/assets/photo_2023-12-28_08-45-25-removebg-preview.png" alt=""
-                                    width="30%">
+                                    <img src="{{ asset('dist') }}/login/assets/photo_2023-12-28_08-45-25-removebg-preview.png"
+                                        alt="" width="30%">
                                 </div>
-                                <form method="post" enctype="multipart/form-data">
+                                <form method="post" enctype="multipart/form-data" action="{{ route('register') }}">
+                                    @csrf
                                     <div class="row">
                                         <div class="">
-                                            <a href="{{ url('/') }}"><button type="button" class="btn bg-gradient-dark float-end"><i class="fa fa-caret-left"></i> back</button></a>
-                                            <h5><span style="border: 2px solid #344767" class="me-2"></span>Registrasi Akun</h5>
+                                            <a href="{{ url('/') }}"><button type="button"
+                                                    class="btn bg-gradient-dark float-end"><i
+                                                        class="fa fa-caret-left"></i> back</button></a>
+                                            <h5><span style="border: 2px solid #344767" class="me-2"></span>Registrasi
+                                                Akun</h5>
                                         </div>
                                         <div class="col-6">
                                             <div class="mb-3">
@@ -141,10 +145,18 @@
                                                 <input type="password" class="form-control" name="password">
                                             </div>
                                         </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="">Confrim Password</label>
+                                                <input type="password" class="form-control"
+                                                    name="password_confirmation">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mt-4 mb-3">
-                                            <h5><span style="border: 2px solid #344767" class="me-2"></span>Data Santri</h5>
+                                            <h5><span style="border: 2px solid #344767" class="me-2"></span>Data
+                                                Santri</h5>
                                         </div>
                                         <div class="col-12">
                                             <div class="row">
@@ -192,11 +204,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                                <div class="mt-4 mb-3">
-                                    <h5><span style="border: 2px solid #344767" class="me-2"></span>Data Wali Santri</h5>
-                                </div>
-                                <form method="post">
+                                    <div class="mt-4 mb-3">
+                                        <h5><span style="border: 2px solid #344767" class="me-2"></span>Data Wali
+                                            Santri</h5>
+                                    </div>
+
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-6">
@@ -218,33 +230,34 @@
                                                 <input type="text" class="form-control" name="no_hp_a">
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="">Pekerjaan Ayah</label>
                                                 <select class="form-select" name="pkj_a">
                                                     <option hidden></option>
-                                                    <option value="1">Belum/ Tidak Bekerja</option>
-                                                    <option value="2">Mengurus Rumah Tangga</option>
-                                                    <option value="3">Pegawai Negeri Sipil</option>
-                                                    <option value="4">TNI/ Polri</option>
-                                                    <option value="5">Guru/ Dosen</option>
-                                                    <option value="6">Karyawan Swasta</option>
-                                                    <option value="7">Karyawan BUMN</option>
-                                                    <option value="8">Profesional</option>
-                                                    <option value="9">Wiraswasta</option>
-                                                    <option value="10">Buruh</option>
+                                                    <option value="Belum/ Tidak Bekerja">Belum/ Tidak Bekerja</option>
+                                                    <option value="Mengurus Rumah Tangga">Mengurus Rumah Tangga</option>
+                                                    <option value="Pegawai Negeri Sipil">Pegawai Negeri Sipil</option>
+                                                    <option value="TNI/ Polri">TNI/ Polri</option>
+                                                    <option value="Guru/ Dosen">Guru/ Dosen</option>
+                                                    <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                                    <option value="Karyawan BUMN">Karyawan BUMN</option>
+                                                    <option value="Profesional">Profesional</option>
+                                                    <option value="Wiraswasta">Wiraswasta</option>
+                                                    <option value="Buruh">Buruh</option>
                                                 </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="">Penghasilan Ayah</label>
                                                 <select class="form-select" name="phs_a">
                                                     <option hidden></option>
-                                                    <option value="1">-</option>
-                                                    <option value="2">
+                                                    <option value="-">-</option>
+                                                    <option value="< 2 Juta">
                                                         < 2 Juta</option>
-                                                    <option value="3">2 - 5 Juta</option>
-                                                    <option value="4">5 - 10 Juta</option>
-                                                    <option value="5">> 10 Juta</option>
+                                                    <option value="2 - 5 Juta">2 - 5 Juta</option>
+                                                    <option value="5 - 10 Juta">5 - 10 Juta</option>
+                                                    <option value="> 10 Juta">> 10 Juta</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -274,28 +287,28 @@
                                                     <label for="">Pekerjaan Ibu</label>
                                                     <select class="form-select" name="pkj_i">
                                                         <option hidden></option>
-                                                        <option value="1">Belum/ Tidak Bekerja</option>
-                                                        <option value="2">Mengurus Rumah Tangga</option>
-                                                        <option value="3">Pegawai Negeri Sipil</option>
-                                                        <option value="4">TNI/ Polri</option>
-                                                        <option value="5">Guru/ Dosen</option>
-                                                        <option value="6">Karyawan Swasta</option>
-                                                        <option value="7">Karyawan BUMN</option>
-                                                        <option value="8">Profesional</option>
-                                                        <option value="9">Wiraswasta</option>
-                                                        <option value="10">Buruh</option>
+                                                        <option value="Belum/ Tidak Bekerja">Belum/ Tidak Bekerja</option>
+                                                        <option value="Mengurus Rumah Tangga">Mengurus Rumah Tangga</option>
+                                                        <option value="Pegawai Negeri Sipil">Pegawai Negeri Sipil</option>
+                                                        <option value="TNI/ Polri">TNI/ Polri</option>
+                                                        <option value="Guru / Dosen">Guru/ Dosen</option>
+                                                        <option value="Karyawan Sawasta">Karyawan Swasta</option>
+                                                        <option value="Karyawan BUMN">Karyawan BUMN</option>
+                                                        <option value="Profesional">Profesional</option>
+                                                        <option value="Wiraswasta">Wiraswasta</option>
+                                                        <option value="Buruh">Buruh</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="">Penghasilan Ibu</label>
                                                     <select class="form-select" name="phs_i">
                                                         <option hidden></option>
-                                                        <option value="1">-</option>
-                                                        <option value="2">
+                                                        <option value="-">-</option>
+                                                        <option value="< 2 Juta">
                                                             < 2 Juta</option>
-                                                        <option value="3">2 - 5 Juta</option>
-                                                        <option value="4">5 - 10 Juta</option>
-                                                        <option value="5">> 10 Juta</option>
+                                                        <option value="2 - 5 Juta">2 - 5 Juta</option>
+                                                        <option value="5 - 10 Juta">5 - 10 Juta</option>
+                                                        <option value="> 10 Juta">> 10 Juta</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -303,7 +316,8 @@
                                             <textarea name="alamat" id="" cols="20" rows="5" class="form-control"
                                                 placeholder="Alamat Domisili"></textarea>
                                             <div class="mt-4 mb-3">
-                                                <h5><span style="border: 2px solid #344767" class="me-2"></span>Unggah Berkas</h5>
+                                                <h5><span style="border: 2px solid #344767"
+                                                        class="me-2"></span>Unggah Berkas</h5>
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">

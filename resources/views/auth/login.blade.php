@@ -91,16 +91,26 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <form role="form" method="post">
+                                    <form role="form" action="{{ route('login') }}" method="post">
+                                        @csrf
                                         <label>Username / Email</label>
                                         <div class="mb-3">
-                                            <input type="user" class="form-control" placeholder="Username or Email"
-                                                name="user">
+                                            {{-- <input type="user" class="form-control" placeholder="Username or Email"
+                                                name="user"> --}}
+                                            <input id="email" class="form-control" type="email"
+                                                name="email" :value="old('email')" required autofocus
+                                                autocomplete="username" />
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                name="pass">
+                                            {{-- <input type="password" class="form-control" placeholder="Password"
+                                                name="pass"> --}}
+
+                                            <input id="password" class="form-control" type="password"
+                                                name="password" required autocomplete="current-password" />
+
+                                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="rememberMe">
@@ -108,7 +118,7 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2"
-                                                name="masuk">Masuk</button>
+                                                name="masuk">{{ __('Masuk') }}</button>
                                         </div>
                                     </form>
                                 </div>

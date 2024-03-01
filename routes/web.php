@@ -28,10 +28,8 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -43,6 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/user', function () {
+    return "Anda User Aplikasi";
+})->name('user')->middleware('auth');
+
+Route::get('/d', function () {
+    return "Selamat Datang, Administrator";
+})->middleware('auth')->name('admin');
 
 
 require __DIR__.'/auth.php';

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AwalController;
+use App\Http\Controllers\SantriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -16,9 +18,17 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard/template');
-});
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [AwalController::class, 'index'])->name('welcome');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 
 
 

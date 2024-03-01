@@ -21,3 +21,4 @@ class Santri extends Model
         return $this->hasMany(Wali_santri::class, 'santri_id', 'id');
     }
 }
+

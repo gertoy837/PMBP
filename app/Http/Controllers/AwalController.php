@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Awal;
+use App\Models\Santri;
 use Illuminate\Http\Request;
 
-class About extends Controller
+class AwalController extends Controller
 {
     public function index()
     {
         $no = 1;
-        $data = About::all();
+        $data = Santri::all();
         return view('welcome', compact('data','no'));
     }
 
@@ -33,7 +34,7 @@ class About extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(About $About)
+    public function show(Awal $Awal)
     {
         //
     }
@@ -41,7 +42,7 @@ class About extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(About $About)
+    public function edit(Awal $Awal)
     {
         //
     }
@@ -49,7 +50,7 @@ class About extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, About $About)
+    public function update(Request $request, Awal $Awal)
     {
         //
     }
@@ -57,7 +58,7 @@ class About extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(About $About)
+    public function destroy(Awal $Awal)
     {
         //
     }

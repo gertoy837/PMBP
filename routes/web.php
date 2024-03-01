@@ -32,7 +32,12 @@ Route::get('/about', function () {
 
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/data-santri', [SantriController::class, 'index'])->name('santri');
+    Route::get('/dashboard/data-santri/detail/{id}', [SantriController::class, 'show'])->name('detail');
+    Route::get('/dashboard/data-santri/edit/{id}', [SantriController::class, 'edit'])->name('edit');
+});
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

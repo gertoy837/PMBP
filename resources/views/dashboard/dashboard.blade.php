@@ -8,13 +8,13 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data_akun/data_akun.php">
+        <a class="nav-link rounded-3 collapsed" href="#">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Akun</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data_santri/data_santri.php">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('santri') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Santri</span>
         </a>
     </li>
@@ -26,14 +26,13 @@
     </li>
 @endsection
 @section('nav')
-    <div class="pagetitle">
+    <div class="pagetitle mb-3">
         <h1>Dashboard</h1>
-        <nav>
+        {{-- <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
-        </nav>
+        </nav> --}}
     </div>
 @endsection
 @section('konten')

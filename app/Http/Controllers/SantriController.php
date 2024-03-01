@@ -7,12 +7,17 @@ use Illuminate\Http\Request;
 
 class SantriController extends Controller
 {
+    public $santri;
+    public function __construct()
+    {
+        $this->santri = new Santri();
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+    
     }
 
     /**

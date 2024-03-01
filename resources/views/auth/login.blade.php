@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,11 +44,11 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
 
 
 
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -95,8 +95,6 @@
                                         @csrf
                                         <label>Username / Email</label>
                                         <div class="mb-3">
-                                            {{-- <input type="user" class="form-control" placeholder="Username or Email"
-                                                name="user"> --}}
                                             <input id="email" class="form-control" type="email"
                                                 name="email" :value="old('email')" required autofocus
                                                 autocomplete="username" />
@@ -104,9 +102,6 @@
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            {{-- <input type="password" class="form-control" placeholder="Password"
-                                                name="pass"> --}}
-
                                             <input id="password" class="form-control" type="password"
                                                 name="password" required autocomplete="current-password" />
 
@@ -177,4 +172,4 @@
 
 </body>
 
-</html> --}}
+</html>

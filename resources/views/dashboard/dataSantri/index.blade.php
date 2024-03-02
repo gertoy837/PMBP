@@ -44,7 +44,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="float-end me-2 mt-4">
-                            <a href="tambah.php"><button class="btn btn-outline-primary">Tambah</button></a>
+                            <a href="{{ route('tambah') }}"><button class="btn btn-outline-primary">Tambah</button></a>
                         </div>
                         <h5 class="card-title">Data Santri</h5>
 
@@ -77,11 +77,20 @@
                                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow border">
 
                                                     <li><a class="dropdown-item"
-                                                            href="{{ route('detail', $san->id)}}">Detail</a></li>
+                                                            href="{{ route('detail', $san->id) }}">Detail</a></li>
                                                     <li><a class="dropdown-item"
-                                                            href="edit.php?id=<?= $san['id'] ?>">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="hapus.php?id=<?= $san['id'] ?>"
-                                                            onclick="return confirm('Apakah anda yakin data ini akan dihapus ?')">Hapus</a>
+                                                            href="{{ route('edit', $san->id) }}">Edit</a></li>
+                                                    <li>
+                                                        <form action="{{ route('destroy', $san->id) }}" class="d-inline"
+                                                            method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit"
+                                                                onclick="return confirm('Apakah mau di hapus?')"
+                                                                class="dropdown-item">Hapus</button>
+                                                        </form>
+                                                        {{-- <a class="dropdown-item" href="hapus.php?id=<?= $san['id'] ?>"
+                                                            onclick="return confirm('Apakah anda yakin data ini akan dihapus ?')">Hapus</a> --}}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -90,11 +99,8 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <!-- End Table with stripped rows -->
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

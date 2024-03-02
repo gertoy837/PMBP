@@ -13,6 +13,21 @@ class Santri extends Model
 
     protected $table = 'santri';
 
+    protected $fillable = [
+        'nik',
+        'nisn',
+        'nama_lengkap',
+        'nama_panggil',
+        'tmp_lahir',
+        'tgl_lahir',
+        'no_hp',
+        'gel_id',
+        'kk',
+        'foto',
+        'ijazah',
+        'rapot',
+    ];
+
     public function gelombang() {
         return $this->belongsTo(Gelombang::class, 'gel_id', 'id');
     }

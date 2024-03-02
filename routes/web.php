@@ -35,8 +35,12 @@ Route::get('/about', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/data-santri', [SantriController::class, 'index'])->name('santri');
+    Route::get('/dashboard/data-santri/tambah', [SantriController::class, 'create'])->name('tambah');
+    Route::post('/dashboard/data-santri/store', [SantriController::class, 'store'])->name('store');
     Route::get('/dashboard/data-santri/detail/{id}', [SantriController::class, 'show'])->name('detail');
     Route::get('/dashboard/data-santri/edit/{id}', [SantriController::class, 'edit'])->name('edit');
+    Route::post('/dashboard/data-santri/update/{id}', [SantriController::class, 'update'])->name('update');
+    Route::delete('/dashboard/data-santri/delete/{id}', [SantriController::class, 'destroy'])->name('destroy');
 });
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

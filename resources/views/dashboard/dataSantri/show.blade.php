@@ -31,7 +31,8 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Data Santri</li>
+                <li class="breadcrumb-item"><a href="{{ route('santri') }}">Data Santri</a></li>
+                <li class="breadcrumb-item active">Detail Data {{ $data->nama_lengkap }}</li>
             </ol>
         </nav>
     </div>
@@ -40,16 +41,15 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="filter d-flex justify-content-between me-4 mx-4 mt-3">
                         <a class="icon" href="{{ route('santri') }}"><button class="btn btn-outline-dark"><i
                                     class="bi bi-chevron-double-left"></i> Kembali</button></a>
-                        <a class="icon" href="edit.php?id=<?= $data->id ?>"><button class="btn btn-outline-info"><i
+                        <a class="icon" href="{{ route('edit', $data->id) }}"><button class="btn btn-outline-info"><i
                                     class="bi bi-pencil"></i> Edit</button></a>
                     </div>
                     <div class="card-body">
-                        <img src="../../../img/<?= $data->foto ?>"
+                        <img src="{{ asset("upload/$data->foto") }}"
                             class="rounded-circle mx-auto d-block object-fit-cover img-thumbnail mt-5 mb-4"
                             style="width: 15%;" alt="...">
                         <h5 class="card-title fs-3 fw-bold text-center mb-5"><?= $data->nama_lengkap ?></h5>
@@ -91,8 +91,7 @@
                                 <div class="card-body">
                                     <h5 class="mx-1 fw-bold">Tempat Tanggal Lahir</h5>
                                     <div class="img-thumbnail">
-                                        <span
-                                            class="p-2"><?= $data->tmp_lahir, ', ', $data->tgl_lahir ?></span>
+                                        <span class="p-2"><?= $data->tmp_lahir, ', ', $data->tgl_lahir ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +118,8 @@
                                 <div class="card-body">
                                     <h5 class="mx-1 fw-bold">Tempat Tanggal Lahir</h5>
                                     <div class="img-thumbnail">
-                                        <span class="p-2"><?= $data->wali_santri->tmp_lahir_a, ', ', $data->wali_santri->tgl_lahir_a ?></span>
+                                        <span
+                                            class="p-2"><?= $data->wali_santri->tmp_lahir_a, ', ', $data->wali_santri->tgl_lahir_a ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,8 @@
                                 <div class="card-body">
                                     <h5 class="mx-1 fw-bold">Tempat Tanggal Lahir</h5>
                                     <div class="img-thumbnail">
-                                        <span class="p-2"><?= $data->wali_santri->tmp_lahir_i, ', ', $data->wali_santri->tgl_lahir_i ?></span>
+                                        <span
+                                            class="p-2"><?= $data->wali_santri->tmp_lahir_i, ', ', $data->wali_santri->tgl_lahir_i ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -279,32 +280,28 @@
                             <div class="col">
                                 <div class="card-body">
                                     <h5 class="fw-bold">Kartu Keluarga :</h5>
-                                    <img src="../../../img/<?= $data->kk ?>" class="img-thumbnail" width="50%"
+                                    <img src="{{ asset("upload/$data->kk") }}" class="img-thumbnail" width="50%"
                                         alt="foto kk">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card-body">
                                     <h5 class="fw-bold">Ijazah :</h5>
-                                    <img src="../../../img/<?= $data->ijazah ?>" class="img-thumbnail"
-                                        width="50%" alt="foto ijazah">
+                                    <img src="{{ asset("upload/$data->ijazah") }}" class="img-thumbnail" width="50%"
+                                        alt="foto ijazah">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card-body">
                                     <h5 class="fw-bold">Rapot :</h5>
-                                    <img src="../../../img/<?= $data->rapot ?>" class="img-thumbnail" width="50%"
+                                    <img src="{{ asset("upload/$data->rapot") }}" class="img-thumbnail" width="50%"
                                         alt="foto rapot">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-
-        </div>
         </div>
     </section>
 @endsection

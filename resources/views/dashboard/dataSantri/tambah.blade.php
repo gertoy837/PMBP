@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data->wali_santri->ata->wali_santri->hp">
+        <a class="nav-link rounded-3 collapsed" href="data_data/data_data.php">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -31,8 +31,8 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('santri') }}">Data Santri</a></li>
-                <li class="breadcrumb-item active">Edit Data Santri {{ $data->nama_lengkap }}</li>
+                <li class="breadcrumb-item"><a href="{{ route('santri') }}">Data santri</a></li>
+                <li class="breadcrumb-item active">Tambah Data Santri</li>
             </ol>
         </nav>
     </div>
@@ -41,101 +41,94 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
-                    <div class="filter mx-4 mt-3">
-                        <a class="icon" href="{{ route('detail', $data->id) }}"><button class="btn btn-outline-dark"><i
-                                    class="bi bi-chevron-double-left"></i> Kembali</button></a>
-                    </div>
                     <div class="card-body">
-                        <img src="../../../img/<?= $data['foto'] ?>"
-                            class="rounded-circle mx-auto d-block object-fit-cover img-thumbnail mt-5 mb-4"
-                            style="width: 15%;" alt="...">
-                        <h5 class="card-title fs-3 fw-bold text-center mb-5"><?= $data['nama_lengkap'] ?></h5>
+                        <div class="float-end me-2 mt-4">
+                            <a href="{{ route('santri') }}"><button class="btn btn-dark">Kembali</button></a>
+                        </div>
                         <p class="card-title fs-5 fw-bold">Data Santri</p>
-
                         <!-- form mulai -->
-                        <form action="{{ route('update', $data->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row row-cols-3">
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">NIK</h5>
-                                        <input type="text" name="nik" class="form-control" id=""
-                                            value="<?= $data['nik'] ?>">
+                                        <input type="text" name="nik" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">NISN</h5>
-                                        <input type="text" name="nisn" class="form-control" id=""
-                                            value="<?= $data['nisn'] ?>">
+                                        <input type="text" name="nisn" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Nama Lengkap</h5>
-                                        <input type="text" name="nama_lengkap" class="form-control" id=""
-                                            value="<?= $data['nama_lengkap'] ?>">
+                                        <input type="text" name="nama" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Nama Panggilan</h5>
-                                        <input type="text" name="nama_panggil" class="form-control" id=""
-                                            value="<?= $data['nama_panggil'] ?>">
+                                        <input type="text" name="panggil" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp_lahir" class="form-control" id=""
-                                            value="<?= $data['tmp_lahir'] ?>">
+                                        <input type="text" name="tmp" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="text" name="tgl_lahir" class="form-control" id=""
-                                            value="<?= $data['tgl_lahir'] ?>">
+                                        <input type="date" name="tgl" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">No Hp</h5>
-                                        <input type="text" name="no" class="form-control" id=""
-                                            value="<?= $data['no_hp'] ?>">
+                                        <input type="text" name="hp" class="form-control" id="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h5 class="mx-1 fw-bold">Gelombang</h5>
+                                        <select class="form-select" name="gel">
+                                            <option hidden></option>
+                                            <option value="1">Gelombang 1</option>
+                                            <option value="2">Gelombang 2</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <p class="card-title fs-5 fw-bold">Data Wali Santri</p>
                             <div class="row row-cols-3">
+
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Nama Ayah</h5>
-                                        <input type="text" name="nama_ayah" class="form-control" id=""
-                                            value="<?= $data->wali_santri->nama_ayah ?>">
+                                        <input type="text" name="nama_a" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp_lahir_a" class="form-control" id=""
-                                            value="<?= $data->wali_santri->tmp_lahir_a ?>">
+                                        <input type="text" name="tmp_a" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="text" name="tgl_lahir_a" class="form-control" id=""
-                                            value="<?= $data->wali_santri->tgl_lahir_a ?>">
+                                        <input type="date" name="tgl_a" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">No Hp Ayah</h5>
-                                        <input type="text" name="no_hp_a" class="form-control" id=""
-                                            value="<?= $data->wali_santri->no_hp_a ?>">
+                                        <input type="text" name="no_hp_a" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -143,16 +136,16 @@
                                         <h5 class="mx-1 fw-bold">Pekerjaan Ayah</h5>
                                         <select class="form-select" name="pkj_a">
                                             <option hidden></option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 1 ? 'selected' : ''; ?> value="1">Belum/ Tidak Bekerja</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 2 ? 'selected' : ''; ?> value="2">Mengurus Rumah Tangga</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 3 ? 'selected' : ''; ?> value="3">Pegawai Negeri Sipil</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 4 ? 'selected' : ''; ?> value="4">TNI/ Polri</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 5 ? 'selected' : ''; ?> value="5">Guru/ Dosen</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 6 ? 'selected' : ''; ?> value="6">Karyawan Swasta</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 7 ? 'selected' : ''; ?> value="7">Karyawan BUMN</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 8 ? 'selected' : ''; ?> value="8">Profesional</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 9 ? 'selected' : ''; ?> value="9">Wiraswasta</option>
-                                            <option <?php echo $data->wali_santri->pkj_a == 10 ? 'selected' : ''; ?> value="10">Buruh</option>
+                                            <option value="1">Belum/ Tidak Bekerja</option>
+                                            <option value="2">Mengurus Rumah Tangga</option>
+                                            <option value="3">Pegawai Negeri Sipil</option>
+                                            <option value="4">TNI/ Polri</option>
+                                            <option value="5">Guru/ Dosen</option>
+                                            <option value="6">Karyawan Swasta</option>
+                                            <option value="7">Karyawan BUMN</option>
+                                            <option value="8">Profesional</option>
+                                            <option value="9">Wiraswasta</option>
+                                            <option value="10">Buruh</option>
                                         </select>
                                     </div>
                                 </div>
@@ -161,12 +154,12 @@
                                         <h5 class="mx-1 fw-bold">Penghasilan Ayah</h5>
                                         <select class="form-select" name="phs_a">
                                             <option hidden></option>
-                                            <option <?php echo $data->wali_santri->phs_a == 1 ? 'selected' : ''; ?> value="1">-</option>
-                                            <option <?php echo $data->wali_santri->phs_a == 2 ? 'selected' : ''; ?> value="2">
+                                            <option value="1">-</option>
+                                            <option value="2">
                                                 < 2 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_a == 3 ? 'selected' : ''; ?> value="3">2 - 5 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_a == 4 ? 'selected' : ''; ?> value="4">5 - 10 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_a == 5 ? 'selected' : ''; ?> value="5">> 10 Juta</option>
+                                            <option value="3">2 - 5 Juta</option>
+                                            <option value="4">5 - 10 Juta</option>
+                                            <option value="5">> 10 Juta</option>
                                         </select>
                                     </div>
                                 </div>
@@ -175,29 +168,25 @@
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Nama Ibu</h5>
-                                        <input type="text" name="nama_ibu" class="form-control" id=""
-                                            value="<?= $data->wali_santri->nama_ibu ?>">
+                                        <input type="text" name="nama_i" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp_lahir_i" class="form-control" id=""
-                                            value="<?= $data->wali_santri->tmp_lahir_i ?>">
+                                        <input type="text" name="tmp_i" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="text" name="tgl_lahir_i" class="form-control" id=""
-                                            value="<?= $data->wali_santri->tgl_lahir_i ?>">
+                                        <input type="date" name="tgl_i" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">No Hp Ibu</h5>
-                                        <input type="text" name="no_hp_i" class="form-control" id=""
-                                            value="<?= $data->wali_santri->no_hp_i ?>">
+                                        <input type="text" name="no_hp_i" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -205,16 +194,16 @@
                                         <h5 class="mx-1 fw-bold">Pekerjaan Ibu</h5>
                                         <select class="form-select" name="pkj_i">
                                             <option hidden></option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 1 ? 'selected' : ''; ?> value="1">Belum/ Tidak Bekerja</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 2 ? 'selected' : ''; ?> value="2">Mengurus Rumah Tangga</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 3 ? 'selected' : ''; ?> value="3">Pegawai Negeri Sipil</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 4 ? 'selected' : ''; ?> value="4">TNI/ Polri</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 5 ? 'selected' : ''; ?> value="5">Guru/ Dosen</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 6 ? 'selected' : ''; ?> value="6">Karyawan Swasta</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 7 ? 'selected' : ''; ?> value="7">Karyawan BUMN</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 8 ? 'selected' : ''; ?> value="8">Profesional</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 9 ? 'selected' : ''; ?> value="9">Wiraswasta</option>
-                                            <option <?php echo $data->wali_santri->pkj_i == 10 ? 'selected' : ''; ?> value="10">Buruh</option>
+                                            <option value="1">Belum/ Tidak Bekerja</option>
+                                            <option value="2">Mengurus Rumah Tangga</option>
+                                            <option value="3">Pegawai Negeri Sipil</option>
+                                            <option value="4">TNI/ Polri</option>
+                                            <option value="5">Guru/ Dosen</option>
+                                            <option value="6">Karyawan Swasta</option>
+                                            <option value="7">Karyawan BUMN</option>
+                                            <option value="8">Profesional</option>
+                                            <option value="9">Wiraswasta</option>
+                                            <option value="10">Buruh</option>
                                         </select>
                                     </div>
                                 </div>
@@ -223,20 +212,20 @@
                                         <h5 class="mx-1 fw-bold">Penghasilan Ibu</h5>
                                         <select class="form-select" name="phs_i">
                                             <option hidden></option>
-                                            <option <?php echo $data->wali_santri->phs_i == 1 ? 'selected' : ''; ?> value="1">-</option>
-                                            <option <?php echo $data->wali_santri->phs_i == 2 ? 'selected' : ''; ?> value="2">
+                                            <option value="1">-</option>
+                                            <option value="2">
                                                 < 2 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_i == 3 ? 'selected' : ''; ?> value="3">2 - 5 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_i == 4 ? 'selected' : ''; ?> value="4">5 - 10 Juta</option>
-                                            <option <?php echo $data->wali_santri->phs_i == 5 ? 'selected' : ''; ?> value="5">> 10 Juta</option>
+                                            <option value="3">2 - 5 Juta</option>
+                                            <option value="4">5 - 10 Juta</option>
+                                            <option value="5">> 10 Juta</option>
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card-body">
-                                    <h5 class="mx-1 fw-bold">Alamat <i class="fa fa-location-dot"></i></h5>
-                                    <textarea name="alamat" id="" cols="20" rows="5" class="form-control">{{ $data->wali_santri->alamat }}</textarea>
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <h5 class="mx-1 fw-bold">Alamat <i class="fa fa-location-dot"></i></h5>
+                                        <textarea name="alamat" id="" cols="20" rows="5" class="form-control"></textarea>
+                                    </div>
                                 </div>
                             </div>
                             <p class="card-title fs-5 fw-bold">Berkas Santri</p>

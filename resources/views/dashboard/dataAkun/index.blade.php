@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
+        <a class="nav-link rounded-3 collapsed" href="data_ws/data_ws.php">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -89,6 +89,8 @@
                                                                 onclick="return confirm('Apakah mau di hapus?')"
                                                                 class="dropdown-item">Hapus</button>
                                                         </form>
+                                                        {{-- <a class="dropdown-item" href="hapus.php?id=<?= $san['id'] ?>"
+                                                            onclick="return confirm('Apakah anda yakin data ini akan dihapus ?')">Hapus</a> --}}
                                                     </li>
                                                 </ul>
                                             </div>

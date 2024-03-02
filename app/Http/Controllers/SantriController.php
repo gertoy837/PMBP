@@ -23,17 +23,11 @@ class SantriController extends Controller
         return view('dashboard/dataSantri/index', compact('data', 'no'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('dashboard/dataSantri/tambah');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $gel = rand(1, 2);
@@ -65,7 +59,7 @@ class SantriController extends Controller
         $this->santri->foto = $foto1;
         $this->santri->ijazah = $ijazah1;
         $this->santri->rapot = $rapot1;
-        
+
         $this->santri->save();
 
         $this->wali_santri->nama_ayah = $request->nama_a;
@@ -87,27 +81,18 @@ class SantriController extends Controller
         return redirect()->route('santri');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $data = Santri::with('Wali_santri')->findOrFail($id);
         return view('dashboard/dataSantri/show', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $data = Santri::with('Wali_santri')->findOrFail($id);
         return view('dashboard/dataSantri/edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $santri = Santri::with('Wali_santri')->findOrFail($id);
@@ -127,7 +112,6 @@ class SantriController extends Controller
 
         // $this->validate($request, $rules, $message);
 
-        // gimana kalau gambarnya kosong
         if (!$request->foto && !$request->kk && !$request->izajah && !$request->rapot) {
 
             $santri->nik = $request->nik;
@@ -137,9 +121,9 @@ class SantriController extends Controller
             $santri->tmp_lahir = $request->tmp_lahir;
             $santri->tgl_lahir = $request->tgl_lahir;
             $santri->no_hp = $request->no;
-            
+
             $santri->save();
-    
+
             $santri->wali_santri->nama_ayah = $request->nama_ayah;
             $santri->wali_santri->tmp_lahir_a = $request->tmp_lahir_a;
             $santri->wali_santri->tgl_lahir_a = $request->tgl_lahir_a;
@@ -153,9 +137,9 @@ class SantriController extends Controller
             $santri->wali_santri->pkj_i = $request->pkj_i;
             $santri->wali_santri->phs_i = $request->phs_i;
             $santri->wali_santri->alamat = $request->alamat;
-    
+
             $santri->wali_santri->save();
-            
+
             return redirect()->route('santri');
         }
         if ($request->foto && $request->kk && $request->izajah && $request->rapot) {
@@ -188,7 +172,7 @@ class SantriController extends Controller
         $santri->foto = $foto1;
         $santri->ijazah = $ijazah1;
         $santri->rapot = $rapot1;
-        
+
         $santri->save();
 
         $santri->wali_santri->nama_ayah = $request->nama_ayah;
@@ -204,7 +188,7 @@ class SantriController extends Controller
         $santri->wali_santri->pkj_i = $request->pkj_i;
         $santri->wali_santri->phs_i = $request->phs_i;
         $santri->wali_santri->alamat = $request->alamat;
-        
+
         $santri->wali_santri->save();
 
         return redirect()->route('santri');
@@ -213,13 +197,10 @@ class SantriController extends Controller
     public function destroy($id)
     {
         $hapus = Santri::with('Wali_santri')->findOrFail($id);
-        // hapus file gambar
-        // buat nyari alamat gambar
-        $path = 'upload/'.$hapus->kk;
-        $path1 = 'upload/'.$hapus->foto;
-        $path2 = 'upload/'.$hapus->ijazah;
-        $path3 = 'upload/'.$hapus->rapot;
-    // ini kalai gambarnya ada di folder upload
+        $path = 'upload/' . $hapus->kk;
+        $path1 = 'upload/' . $hapus->foto;
+        $path2 = 'upload/' . $hapus->ijazah;
+        $path3 = 'upload/' . $hapus->rapot;
         if (File::exists($path) && File::delete($path1) && File::delete($path2) && File::delete($path3)) {
             File::delete($path);
             File::delete($path1);

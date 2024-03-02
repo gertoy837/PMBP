@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
+        <a class="nav-link rounded-3 collapsed" href="data_data/data_data.php">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -91,6 +91,16 @@
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">No Hp</h5>
                                         <input type="text" name="hp" class="form-control" id="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h5 class="mx-1 fw-bold">Gelombang</h5>
+                                        <select class="form-select" name="gel">
+                                            <option hidden></option>
+                                            <option value="1">Gelombang 1</option>
+                                            <option value="2">Gelombang 2</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

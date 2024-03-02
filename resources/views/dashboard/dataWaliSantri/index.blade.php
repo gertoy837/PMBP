@@ -14,13 +14,13 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 " href="{{ route('santri') }}">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('santri') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Santri</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
+        <a class="nav-link rounded-3" href="{{ route('dataWaliSantri.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -44,32 +44,34 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="float-end me-2 mt-4">
-                            <a href="{{ route('tambah') }}"><button class="btn btn-outline-primary">Tambah</button></a>
+                            <a href="{{ route('dataWaliSantri.create') }}"><button class="btn btn-outline-primary">Tambah</button></a>
                         </div>
-                        <h5 class="card-title">Data Santri</h5>
+                        <h5 class="card-title">Data Wali Santri</h5>
 
                         <!-- Table with stripped rows -->
                         <table class="table datatable">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NISN</th>
-                                    <th>NIK</th>
-                                    <th>Nama</th>
+                                    <th>Nama Ayah</th>
+                                    <th>Tempat Tanggal Lahir</th>
+                                    <th>No Hp</th>
+                                    <th>Nama Ibu</th>
                                     <th>Tempat Tanggal Lahir</th>
                                     <th>No Hp</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $san)
+                                @foreach ($data as $ws)
                                     <tr>
                                         <td><?= ++$no ?></td>
-                                        <td><?= $san['nisn'] ?></td>
-                                        <td><?= $san['nik'] ?></td>
-                                        <td><?= $san['nama_lengkap'] ?></td>
-                                        <td><?= $san['tmp_lahir'], ', ', $san['tgl_lahir'] ?></td>
-                                        <td><?= $san['no_hp'] ?></td>
+                                        <td><?= $ws['nama_ayah'] ?></td>
+                                        <td><?= $ws['tmp_lahir_a'], ', ', $ws['tgl_lahir_a'] ?></td>
+                                        <td><?= $ws['no_hp_a'] ?></td>
+                                        <td><?= $ws['nama_ibu'] ?></td>
+                                        <td><?= $ws['tmp_lahir_i'], ', ', $ws['tgl_lahir_i'] ?></td>
+                                        <td><?= $ws['no_hp_i'] ?></td>
                                         <td>
                                             <div class="filter">
                                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i
@@ -77,12 +79,13 @@
                                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow border">
 
                                                     <li><a class="dropdown-item"
-                                                            href="{{ route('detail', $san->id) }}">Detail</a></li>
+                                                            href="{{ route('dataWaliSantri.show', $ws->id) }}">Detail</a>
+                                                    </li>
                                                     <li><a class="dropdown-item"
-                                                            href="{{ route('edit', $san->id) }}">Edit</a></li>
+                                                            href="{{ route('dataWaliSantri.edit', $ws->id) }}">Edit</a></li>
                                                     <li>
-                                                        <form action="{{ route('destroy', $san->id) }}" class="d-inline"
-                                                            method="POST">
+                                                        <form action="{{ route('dataWaliSantri.destroy', $ws->id) }}"
+                                                            class="d-inline" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button type="submit"

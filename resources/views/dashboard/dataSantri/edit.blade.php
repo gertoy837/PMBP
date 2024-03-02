@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data->wali_santri->ata->wali_santri->hp">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -57,6 +57,7 @@
                         <!-- form mulai -->
                         <form action="{{ route('update', $data->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row row-cols-3">
                                 <div class="col">
                                     <div class="card-body">

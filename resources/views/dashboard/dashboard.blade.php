@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data_ws/data_ws.php">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>

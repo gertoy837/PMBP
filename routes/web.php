@@ -5,7 +5,8 @@ use App\Http\Controllers\AwalController;
 use App\Http\Controllers\SantriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\WaliSantriController;
+use App\Models\Wali_santri;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +40,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/data-santri/store', [SantriController::class, 'store'])->name('store');
     Route::get('/dashboard/data-santri/detail/{id}', [SantriController::class, 'show'])->name('detail');
     Route::get('/dashboard/data-santri/edit/{id}', [SantriController::class, 'edit'])->name('edit');
-    Route::post('/dashboard/data-santri/update/{id}', [SantriController::class, 'update'])->name('update');
+    Route::PUT('/dashboard/data-santri/update/{id}', [SantriController::class, 'update'])->name('update');
     Route::delete('/dashboard/data-santri/delete/{id}', [SantriController::class, 'destroy'])->name('destroy');
+
+    Route::resource('dataWaliSantri', WaliSantriController::class);
+
 });
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

@@ -11,6 +11,7 @@ class SantriController extends Controller
 {
     public $santri;
     public $wali_santri;
+  
     public function __construct()
     {
         $this->santri = new Santri();

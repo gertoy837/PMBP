@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Gelombang;
+use App\Models\User;
 use App\Models\Wali_santri;
 
 class Santri extends Model
@@ -14,18 +15,18 @@ class Santri extends Model
     protected $table = 'santri';
 
     protected $fillable = [
-        'nama_lengkap',
-        'nama_panggil',
         'nik',
         'nisn',
+        'nama_lengkap',
+        'nama_panggil',
         'tmp_lahir',
         'tgl_lahir',
         'no_hp',
+        'gel_id',
         'kk',
         'foto',
         'ijazah',
         'rapot',
-        'gel_id',
     ];
 
     public function gelombang() {
@@ -35,5 +36,10 @@ class Santri extends Model
     public function wali_santri() {
         return $this->hasOne(Wali_santri::class, 'santri_id', 'id');
     }
+
+    public function akun() {
+        return $this->belongsTo(User::class, 'nama_lengkap', 'name');
+    }
+
 }
 

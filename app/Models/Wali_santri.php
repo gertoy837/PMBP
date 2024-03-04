@@ -26,7 +26,7 @@ class Wali_santri extends Model
         'pkj_i',
         'phs_i',
         'alamat',
-        'santri_id'
+        'santri_id',
     ];
 
     public function santri() {

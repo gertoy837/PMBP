@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Gelombang;
+use App\Models\User;
 use App\Models\Wali_santri;
 
 class Santri extends Model
@@ -35,5 +36,10 @@ class Santri extends Model
     public function wali_santri() {
         return $this->hasOne(Wali_santri::class, 'santri_id', 'id');
     }
+
+    public function akun() {
+        return $this->belongsTo(User::class, 'nama_lengkap', 'name');
+    }
+
 }
 

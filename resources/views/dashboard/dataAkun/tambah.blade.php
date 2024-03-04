@@ -8,19 +8,19 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="#">
+        <a class="nav-link rounded-3 " href="{{ route('dataAkun.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Akun</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 " href="{{ route('santri') }}">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('santri') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Santri</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="data_data/data_data.php">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -31,8 +31,8 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('santri') }}">Data santri</a></li>
-                <li class="breadcrumb-item active">Tambah Data Santri</li>
+                <li class="breadcrumb-item"><a href="{{ route('dataAkun.index') }}">Data Akun</a></li>
+                <li class="breadcrumb-item active">Tambah Data Akun</li>
             </ol>
         </nav>
     </div>
@@ -41,221 +41,67 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
+
                 <div class="card">
+                    <div class="filter mx-4 mt-3">
+                        <a class="icon" href="{{ route('dataAkun.index') }}"><button class="btn btn-outline-dark"><i
+                                    class="bi bi-chevron-double-left"></i> Kembali</button></a>
+                    </div>
                     <div class="card-body">
-                        <div class="float-end me-2 mt-4">
-                            <a href="{{ route('santri') }}"><button class="btn btn-dark">Kembali</button></a>
-                        </div>
-                        <p class="card-title fs-5 fw-bold">Data Santri</p>
+                        <p class="card-title fs-5 fw-bold">Data Akun</p>
+
                         <!-- form mulai -->
-                        <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('dataAkun.store')}}" method="post">
                             @csrf
                             <div class="row row-cols-3">
                                 <div class="col">
                                     <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">NIK</h5>
-                                        <input type="text" name="nik" class="form-control" id="">
+                                        <h5 class="mx-1 fw-bold">name</h5>
+                                        <input type="text" name="name" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">NISN</h5>
-                                        <input type="text" name="nisn" class="form-control" id="">
+                                        <h5 class="mx-1 fw-bold">Username</h5>
+                                        <input type="text" name="username" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Nama Lengkap</h5>
-                                        <input type="text" name="nama" class="form-control" id="">
+                                        <h5 class="mx-1 fw-bold">Email</h5>
+                                        <input type="email" name="email" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Nama Panggilan</h5>
-                                        <input type="text" name="panggil" class="form-control" id="">
+                                        <h5 class="mx-1 fw-bold">Password</h5>
+                                        <input type="text" name="password" class="form-control" id="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="date" name="tgl" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">No Hp</h5>
-                                        <input type="text" name="hp" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Gelombang</h5>
-                                        <select class="form-select" name="gel">
+                                        <h5 class="mx-1 fw-bold">Role</h5>
+                                        <select class="form-select" name="role">
                                             <option hidden></option>
-                                            <option value="1">Gelombang 1</option>
-                                            <option value="2">Gelombang 2</option>
+                                            <option value="admin">admin</option>
+                                            <option value="user">user</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h5 class="mx-1 fw-bold">Santri</h5>
+                                        <select class="form-select" name="nama_lengkap">
+                                            <option hidden></option>
+                                            @foreach ($santri as $san)
+                                                <option value="<?= $san['nama_lengkap'] ?>"><?= $san['nama_lengkap'] ?>
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <p class="card-title fs-5 fw-bold">Data Wali Santri</p>
-                            <div class="row row-cols-3">
-
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Nama Ayah</h5>
-                                        <input type="text" name="nama_a" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp_a" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="date" name="tgl_a" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">No Hp Ayah</h5>
-                                        <input type="text" name="no_hp_a" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Pekerjaan Ayah</h5>
-                                        <select class="form-select" name="pkj_a">
-                                            <option hidden></option>
-                                            <option value="1">Belum/ Tidak Bekerja</option>
-                                            <option value="2">Mengurus Rumah Tangga</option>
-                                            <option value="3">Pegawai Negeri Sipil</option>
-                                            <option value="4">TNI/ Polri</option>
-                                            <option value="5">Guru/ Dosen</option>
-                                            <option value="6">Karyawan Swasta</option>
-                                            <option value="7">Karyawan BUMN</option>
-                                            <option value="8">Profesional</option>
-                                            <option value="9">Wiraswasta</option>
-                                            <option value="10">Buruh</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Penghasilan Ayah</h5>
-                                        <select class="form-select" name="phs_a">
-                                            <option hidden></option>
-                                            <option value="1">-</option>
-                                            <option value="2">
-                                                < 2 Juta</option>
-                                            <option value="3">2 - 5 Juta</option>
-                                            <option value="4">5 - 10 Juta</option>
-                                            <option value="5">> 10 Juta</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row row-cols-3 mt-3">
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Nama Ibu</h5>
-                                        <input type="text" name="nama_i" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tempat Lahir</h5>
-                                        <input type="text" name="tmp_i" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Tanggal Lahir</h5>
-                                        <input type="date" name="tgl_i" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">No Hp Ibu</h5>
-                                        <input type="text" name="no_hp_i" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Pekerjaan Ibu</h5>
-                                        <select class="form-select" name="pkj_i">
-                                            <option hidden></option>
-                                            <option value="1">Belum/ Tidak Bekerja</option>
-                                            <option value="2">Mengurus Rumah Tangga</option>
-                                            <option value="3">Pegawai Negeri Sipil</option>
-                                            <option value="4">TNI/ Polri</option>
-                                            <option value="5">Guru/ Dosen</option>
-                                            <option value="6">Karyawan Swasta</option>
-                                            <option value="7">Karyawan BUMN</option>
-                                            <option value="8">Profesional</option>
-                                            <option value="9">Wiraswasta</option>
-                                            <option value="10">Buruh</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Penghasilan Ibu</h5>
-                                        <select class="form-select" name="phs_i">
-                                            <option hidden></option>
-                                            <option value="1">-</option>
-                                            <option value="2">
-                                                < 2 Juta</option>
-                                            <option value="3">2 - 5 Juta</option>
-                                            <option value="4">5 - 10 Juta</option>
-                                            <option value="5">> 10 Juta</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Alamat <i class="fa fa-location-dot"></i></h5>
-                                        <textarea name="alamat" id="" cols="20" rows="5" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-title fs-5 fw-bold">Berkas Santri</p>
-                            <div class="row row-cols-4">
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold">Kartu Keluarga :</h5>
-                                        <input type="file" name="kk" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold">Foto :</h5>
-                                        <input type="file" name="foto" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold">Ijazah :</h5>
-                                        <input type="file" name="ijazah" class="form-control" id="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold">Rapot :</h5>
-                                        <input type="file" name="rapot" class="form-control" id="">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn btn-outline-success float-end me-4 mt-3" type="submit" name="simpan"><i
+                            <button class="btn btn-outline-success float-end me-4 mt-3" name="simpan"><i
                                     class="bi bi-save2"></i> Simpan</button>
                         </form>
                     </div>

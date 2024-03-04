@@ -8,7 +8,7 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="#">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('dataAkun.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Akun</span>
         </a>
     </li>
@@ -100,6 +100,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {!! $data->withQueryString()->links('pagination::bootstrap-5') !!}
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ use App\Http\Controllers\SantriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WaliSantriController;
-use App\Models\Wali_santri;
+use App\Http\Controllers\AkunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::PUT('/dashboard/data-santri/update/{id}', [SantriController::class, 'update'])->name('update');
     Route::delete('/dashboard/data-santri/delete/{id}', [SantriController::class, 'destroy'])->name('destroy');
 
+    Route::resource('dataAkun', AkunController::class);
     Route::resource('dataWaliSantri', WaliSantriController::class);
-
 });
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

@@ -11,6 +11,23 @@ use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
+    protected $user;
+    // Ini Buat ngasih opsi inputan login jadi boleh pake username boleh juga pake email
+    protected function prepareForValidation(): void
+    {
+        // buat dulul variabel yang bisa dinamis isinya
+
+        // if kalo inputin email
+        if (filter_var($this->input('usermail'),  FILTER_VALIDATE_EMAIL)) {
+            $this->user = 'email';
+        } else {
+            // else kalo inputin username
+            $this->user = 'username';
+        }
+        $this->merge([
+            $this->user => $this->input('usermail'),
+        ]);
+    }
     /**
      * Determine if the user is authorized to make this request.
      */

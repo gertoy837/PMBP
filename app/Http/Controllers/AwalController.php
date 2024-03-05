@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gelombang;
+use App\Models\Awal;
+use App\Models\Santri;
 use Illuminate\Http\Request;
 
-class GelombangController extends Controller
+class AwalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $no = 1;
+        $data = Santri::all();
+        return view('welcome', compact('data','no'));
     }
 
     /**
@@ -34,7 +34,7 @@ class GelombangController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Gelombang $gelombang)
+    public function show(Awal $Awal)
     {
         //
     }
@@ -42,7 +42,7 @@ class GelombangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gelombang $gelombang)
+    public function edit(Awal $Awal)
     {
         //
     }
@@ -50,7 +50,7 @@ class GelombangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gelombang $gelombang)
+    public function update(Request $request, Awal $Awal)
     {
         //
     }
@@ -58,7 +58,7 @@ class GelombangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gelombang $gelombang)
+    public function destroy(Awal $Awal)
     {
         //
     }

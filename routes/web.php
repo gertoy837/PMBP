@@ -41,13 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/user', function () {
-    return "Anda User Aplikasi";
-})->name('user')->middleware('auth');
+    Route::get('/user', function () {
+        return "Anda User Aplikasi";
+    })->name('user')->middleware('auth');
 
-Route::get('/d', function () {
-    return "Selamat Datang, Administrator";
-})->middleware('auth')->name('admin');
+    // Route::get('/d', function () {
+    //     return "Selamat Datang, Administrator";
+    // })->middleware('auth')->name('admin');
 
 
 require __DIR__.'/auth.php';

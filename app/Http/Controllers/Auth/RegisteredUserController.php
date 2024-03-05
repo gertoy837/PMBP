@@ -52,15 +52,15 @@ class RegisteredUserController extends Controller
         $kk->move(public_path() . '/upload', $kk1);        
 
         $foto = $request->foto;
-        $foto1 = $kk->getClientOriginalName();
+        $foto1 = $foto->getClientOriginalName();
         $foto->move(public_path() . '/upload', $foto1);
         
         $ijazah = $request->ijazah;
-        $ijazah1 = $kk->getClientOriginalName();
+        $ijazah1 = $ijazah->getClientOriginalName();
         $ijazah->move(public_path() . '/upload', $ijazah1);
 
         $rapot = $request->rapot;
-        $rapot1 = $kk->getClientOriginalName();
+        $rapot1 = $ijazah->getClientOriginalName();
         $rapot->move(public_path() . '/upload', $rapot1);
 
         $santri = Santri::create([

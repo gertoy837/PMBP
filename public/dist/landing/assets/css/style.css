@@ -356,16 +356,7 @@ h6 {
   display: block;
 }
 
-aside {
-  background-image: linear-gradient(
-      270deg,
-      rgb(20, 20, 20),
-      rgba(255, 255, 255, 0)
-    ),
-    url(../../img/mahasantri-1.jpg);
-  background-size: cover;
-  height: 500px;
-}
+
 
 @media (min-width: 1024px) {
   aside {

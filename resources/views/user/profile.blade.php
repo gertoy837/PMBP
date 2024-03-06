@@ -37,41 +37,35 @@
             </div>
 
             <nav id="navbar" class="navbar ">
-                <ul class="">
+                <ul>
 
-                    <li><a class="nav-link  scrollto" href="#">Home</a></li>
-                    <li><a class="nav-link  scrollto" href="#">About</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-
-                    <li class="dropdown"><a href="#"><span> More Info</span> <i class="bi bi-chevron-down"></i></a>
+                    <li><a class="nav-link  scrollto" href="{{ route('awal') }}">Home</a></li>
+                    <li><a class="nav-link  scrollto" href="{{ route('about') }}">About</a></li>
+                    <li class="dropdown"><a href="#">
+                            <span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i>
+                            <img src="{{ asset('dist/dashboard/assets/img/profile-img.jpg') }}" alt=""
+                                width="35px" height="35px" style="margin-left: 5px; border-radius:50%"></a>
                         <ul>
-                            <li><a class="nav-link  scrollto" href="#features">Syarat dan Ketentuan</a></li>
-                            <li><a class="nav-link  scrollto" href="#lampiran">lampiran berkas</a></li>
-                            <li><a class="nav-link  scrollto" href="#alur">Alur Pendaftaran</a></li>
-                            <li><a class="nav-link  scrollto" href="#formulir">Formulir Pendaftaran</a></li>
-                            <li><a class="nav-link  scrollto" href="#pricing">Seleksi Tes</a></li>
+
+                            <li>
+                                <a class="nav-link  scrollto" href="{{ route('user', Auth::user()->id) }}">My
+                                    Profile</a>
+                            </li>
+                            <li>
+                                <form method="POST" class="dropdown-item d-flex align-items-center"
+                                    action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="nav-link scrollto">
+                                        <div :href="route('logout')" style="cursor: pointer"
+                                            onclick="event.preventDefault();
+                                          this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </div>
+                                    </a>
+                                </form>
+                            </li>
                         </ul>
                     </li>
-                    @if (Route::has('login'))
-                    <ul class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                        @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                        @else
-                        <li class="getstarted scrollto p-2 px-3" style="background-color: #39A7FF;">
-                            <a href="{{ route('login') }}"
-                                class="font-semibold p-1 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                in</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="getstarted scrollto p-2 mx-2 text-white">
-                            <a href="{{ route('register') }}"
-                                class="ml-4 p-1 text-white font-semibold text-white-600 hover:text-white-900 dark:text-white-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        </li>
-                        @endif
-                        @endauth
-                    </ul>
-                    @endif
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -87,7 +81,7 @@
         {{-- breadcum --}}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb d-flex">
-                <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('awal')}}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Profile</li>
 
             </ol>
@@ -103,13 +97,11 @@
                 <div class="card" style="border: none;">{{--style="border: none;
                     "--}}
                     <div class="card-body rounded">
-                        {{-- foto santri --}}
-                        {{-- {{asset('upload'). '/'. $data->foto}} --}}
-                        <img src="{{asset('upload'). '/'. $data->foto}}" width="150px" height="150px" alt=""
+                        <img src="{{asset('upload'). '/'. $data->santri->foto}}" width="150px" height="150px" alt=""
                             class="mx-auto d-block rounded-circle mb-3" style="box-shadow: 1px 1px 10px">
                         <h3 class="text-center"></h3>
-                        <p class="text-center mb-0 fw-bold">{{$data->nama_panggil}}</p>
-                        <p class="text-center mb-0">{{$data->tmp_lahir}}</p>
+                        <p class="text-center mb-0 fw-bold">{{$data->santri->nama_panggil}}</p>
+                        <p class="text-center mb-0">{{$data->santri->tmp_lahir}}</p>
                         <p class="text-center text-muted">- Santri 2023-2024 - </p>
                     </div>
                 </div>
@@ -129,13 +121,16 @@
                                     <div class="accordion-body">
 
                                         {{-- foto ijazah --}}
-                                        <img src="{{asset('upload'). '/'. $data->foto}}" width="150px" height="150px"
+                                        <img src="{{asset('upload'). '/'. $data->santri->ijazah}}" width="150px" height="150px"
                                             alt="" class="mx-auto d-block rounded mb-3">
                                         <p class="text-muted text-center">Foto Ijasah</p>
                                         {{-- foto kk --}}
-                                        <img src="{{asset('upload'). '/'. $data->foto}}" width="150px" height="150px"
+                                        <img src="{{asset('upload'). '/'. $data->santri->kk}}" width="150px" height="150px"
                                             alt="" class="mx-auto d-block rounded mb-3">
                                         <p class="text-muted text-center">Foto KK </p>
+                                        <img src="{{asset('upload'). '/'. $data->santri->rapot}}" width="150px" height="150px"
+                                            alt="" class="mx-auto d-block rounded mb-3">
+                                        <p class="text-muted text-center">Foto Rapot </p>
                                     </div>
                                 </div>
                             </div>
@@ -149,38 +144,25 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <a href="{{url('/')}}">
-                                            <button class="btn btn-outline-primary float-end"><i
-                                                    class="fa-solid fa-chevron-left me-2">
-                                                </i>Back</button>
-                                    </td>
-                                    </a>
-                                </tr>
-                                <tr>
-                                    <th>Nik :</th>
-                                    <td>{{$data->nik}} </td>
+                                    <th>Nik</th>
+                                    <td>: {{$data->santri->nik}} </td>
                                     <td></td>
 
                                 </tr>
                                 <tr>
-                                    <th>Nisn :</th>
-                                    <td> {{$data->nisn}}</td>
+                                    <th>Nisn</th>
+                                    <td>: {{$data->santri->nisn}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>Nama Lengkap :</th>
-                                    <td> {{$data->nama_lengkap}}</td>
+                                    <th>Nama Lengkap</th>
+                                    <td>: {{$data->santri->nama_lengkap}}</td>
                                     <td></td>
                                 </tr>
 
                                 <tr>
-                                    <th>Nama Ayah :</th>
-                                    <td>
-                                        {{ $data->wali_santri->first()->nama_ayah }}
-                                    </td>
+                                    <th>Nama Ayah</th>
+                                    <td>: {{ $data->santri->wali_santri->nama_ayah }}</td>
                                     <td></td>
 
 
@@ -188,29 +170,28 @@
 
                                 </tr>
                                 <tr>
-                                    <th>Nama Ibu :</th>
-                                    <td> {{ $data->wali_santri->first()->nama_ibu }}</td>
+                                    <th>Nama Ibu</th>
+                                    <td>: {{ $data->santri->wali_santri->nama_ibu }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>Tanggal-Lahir :</th>
-                                    <td> {{$data->tgl_lahir}}</td>
+                                    <th>Tanggal-Lahir</th>
+                                    <td>: {{$data->santri->tgl_lahir}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>No hp :</th>
-                                    <td> {{$data->no_hp}}</td>
+                                    <th>No hp</th>
+                                    <td>: {{$data->santri->no_hp}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>Alamat :</th>
-                                    <td>{{ $data->wali_santri->first()->alamat }} </td>
+                                    <th>Alamat</th>
+                                    <td>: {{ $data->santri->wali_santri->alamat }} </td>
                                     <td></td>
                                 </tr>
 
                             </table>
                         </div>
-                        {{-- data wali santri --}}
                         <div class="accordion border-none" id="accordionExample">
                             <div class="accordion-item border-none">
                                 <h2 class="accordion-header">
@@ -225,56 +206,52 @@
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>
-                                                    <th>Nama Ayah :</th>
-                                                    <td>{{$data->wali_santri->first()->nama_ayah}} </td>
+                                                    <th>Nama Ayah</th>
+                                                    <td>: {{$data->santri->wali_santri->nama_ayah}} </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Tempat Tanggal lahir ayah :</th>
-                                                    <td> {{$data->wali_santri->first()->tmp_lahir_a}},
-                                                        {{$data->wali_santri->first()->tgl_lahir_a}}</td>
+                                                    <th>Tempat Tanggal lahir ayah</th>
+                                                    <td>: {{$data->santri->wali_santri->tmp_lahir_a}},
+                                                        {{$data->santri->wali_santri->tgl_lahir_a}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Telp Ayah :</th>
-                                                    <td> {{$data->wali_santri->first()->no_hp_a}}</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>Pekerjaan Ayah :</th>
-                                                    <td>
-                                                        {{ $data->wali_santri->first()->pkj_a }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Penghasilan Ayah :</th>
-                                                    <td> {{ $data->wali_santri->first()->phs_a }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Nama Ibu :</th>
-                                                    <td> {{$data->wali_santri->first()->nama_ibu}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Tempat Tanggal lahir Ibu :</th>
-                                                    <td> {{$data->wali_santri->first()->tmp_lahir_i}},
-                                                        {{$data->wali_santri->first()->tgl_lahir_i}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Telp Ibu :</th>
-                                                    <td> {{$data->wali_santri->first()->no_hp_i}}</td>
+                                                    <th>Telp Ayah</th>
+                                                    <td>: {{$data->santri->wali_santri->no_hp_a}}</td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>Pekerjaan Ibu :</th>
-                                                    <td>
-                                                        {{ $data->wali_santri->first()->pkj_i }}
-                                                    </td>
+                                                    <th>Pekerjaan Ayah</th>
+                                                    <td>: {{ $data->santri->wali_santri->pkj_a }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Penghasilan Ibu :</th>
-                                                    <td> {{ $data->wali_santri->first()->phs_i }}</td>
+                                                    <th>Penghasilan Ayah</th>
+                                                    <td>: {{ $data->santri->wali_santri->phs_a }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Alamat :</th>
-                                                    <td>{{ $data->wali_santri->first()->alamat}} </td>
+                                                    <th>Nama Ibu</th>
+                                                    <td>: {{$data->santri->wali_santri->nama_ibu}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tempat Tanggal lahir Ibu</th>
+                                                    <td>: {{$data->santri->wali_santri->tmp_lahir_i}},
+                                                        {{$data->santri->wali_santri->tgl_lahir_i}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Telp Ibu</th>
+                                                    <td>: {{$data->santri->wali_santri->no_hp_i}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Pekerjaan Ibu</th>
+                                                    <td>: {{ $data->santri->wali_santri->pkj_i }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Penghasilan Ibu</th>
+                                                    <td>: {{ $data->santri->wali_santri->phs_i }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Alamat</th>
+                                                    <td>: {{ $data->santri->wali_santri->alamat}} </td>
                                                 </tr>
 
                                             </table>

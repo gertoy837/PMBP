@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Santri;
+use App\Models\Wali_santri;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -50,5 +51,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function santri() {
         return $this->hasOne(Santri::class, 'nama_lengkap', 'name');
+    }
+
+    public function wali_santri() {
+        return $this->hasOne(Wali_santri::class, 'santri_id', 'id');
     }
 }

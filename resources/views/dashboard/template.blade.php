@@ -73,10 +73,10 @@
                             <form method="POST" class="dropdown-item d-flex align-items-center"
                                 action="{{ route('logout') }}">
                                 @csrf
-                                <i class="bi bi-box-arrow-right"></i>
                                 <div :href="route('logout')" style="cursor: pointer"
                                     onclick="event.preventDefault();
                                       this.closest('form').submit();">
+                                    <i class="bi bi-box-arrow-right"></i>
                                     {{ __('Log Out') }}
                                 </div>
                             </form>

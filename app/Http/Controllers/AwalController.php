@@ -15,51 +15,8 @@ class AwalController extends Controller
         return view('welcome', compact('data','no'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function about()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Awal $Awal)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Awal $Awal)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Awal $Awal)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Awal $Awal)
-    {
-        //
+        return view('about');
     }
 }

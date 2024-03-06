@@ -4,26 +4,23 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Models\Santri;
-use App\Models\Wali_santri;
+use App\Models\User;
 
 class AboutController extends Controller
 {
     public function index($id)
     {
-        $data = Santri::FindOrFail($id);
-        // $wali = Wali_santri::FindOrFail($id);
-        // $santri = Santri::all();
-        // $wali =  Wali_santri::all();
-        return view('user.profile', compact('data'));
+        $data = User::with(['santri','wali_santri'])->FindOrFail($id);
+        return view('user/profile', compact('data'));
     }
 
     public function home()
     {
-        $data = Santri::all();
-        // $wali = Wali_santri::FindOrFail($id);
-        // $santri = Santri::all();
-        // $wali =  Wali_santri::all();
-        return view('welcome', compact('data'));
+        return view('user/index');
+    }
+
+    public function about()
+    {
+        return view('user/about');
     }
 }

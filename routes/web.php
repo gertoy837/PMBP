@@ -29,9 +29,9 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/data-santri', [SantriController::class, 'index'])->name('santri');
     Route::get('/dashboard/data-santri/tambah', [SantriController::class, 'create'])->name('tambah');

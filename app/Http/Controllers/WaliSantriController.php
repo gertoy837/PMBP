@@ -6,6 +6,7 @@ use App\Models\Wali_santri;
 use App\Models\Santri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class WaliSantriController extends Controller
 {
@@ -45,6 +46,7 @@ class WaliSantriController extends Controller
         $this->ws->santri_id =  $request->nama;
 
         $this->ws->save();
+        Alert::success('Success Title', 'Data Berhasil Ditambahkan');
         return redirect()->route('dataWaliSantri.index');
     }
 
@@ -77,8 +79,12 @@ class WaliSantriController extends Controller
         $ws->pkj_i = $request->pkj_i;
         $ws->phs_i = $request->phs_i;
         $ws->alamat = $request->alamat;
-        
-        $ws->save();
+        if ($ws->isDirty()) {
+            $ws->save();
+            Alert::success('Successfull', 'Data Berhasil di Ubah');
+        } else {
+            Alert::info('Info', 'Tidak ada perubahan data');
+        }
         return redirect()->route('dataWaliSantri.index');
     }
 
@@ -86,6 +92,7 @@ class WaliSantriController extends Controller
     {
         $hapus = Wali_santri::findOrFail($wali_santri);
         $hapus->delete();
+        Alert::success('Successfull', 'Data Berhasil di Hapus');
         return back();
     }
 }

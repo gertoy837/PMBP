@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: #E0F4FF;">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('welcome') }}" class="logo d-flex align-items-center">
@@ -112,6 +113,28 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
     </a>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data akan dihapus secara permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+    </script>
+    
     <script src="{{ asset('dist') }}/dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('dist') }}/dashboard/assets/vendor/echarts/echarts.min.js"></script>
     <script src="{{ asset('dist') }}/dashboard/assets/js/main.js"></script>

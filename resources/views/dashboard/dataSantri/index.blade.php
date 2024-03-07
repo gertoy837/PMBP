@@ -82,12 +82,10 @@
                                                             href="{{ route('edit', $san->id) }}">Edit</a></li>
                                                     <li>
                                                         <form action="{{ route('destroy', $san->id) }}" class="d-inline"
-                                                            method="POST">
+                                                            onclick="confirmDelete(event)" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit"
-                                                                onclick="return confirm('Apakah mau di hapus?')"
-                                                                class="dropdown-item">Hapus</button>
+                                                            <button type="submit" class="dropdown-item">Hapus</button>
                                                         </form>
                                                     </li>
                                                 </ul>

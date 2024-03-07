@@ -44,7 +44,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="float-end me-2 mt-4">
-                            <a href="{{ route('dataWaliSantri.create') }}"><button class="btn btn-outline-primary">Tambah</button></a>
+                            <a href="{{ route('dataWaliSantri.create') }}"><button
+                                    class="btn btn-outline-primary">Tambah</button></a>
                         </div>
                         <h5 class="card-title">Data Wali Santri</h5>
 
@@ -85,12 +86,10 @@
                                                             href="{{ route('dataWaliSantri.edit', $ws->id) }}">Edit</a></li>
                                                     <li>
                                                         <form action="{{ route('dataWaliSantri.destroy', $ws->id) }}"
-                                                            class="d-inline" method="POST">
+                                                            onclick="confirmDelete(event)" class="d-inline" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit"
-                                                                onclick="return confirm('Apakah mau di hapus?')"
-                                                                class="dropdown-item">Hapus</button>
+                                                            <button type="submit" class="dropdown-item">Hapus</button>
                                                         </form>
                                                     </li>
                                                 </ul>

@@ -31,7 +31,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="{{url('/')}}">
+                <h1><a href="{{ url('/') }}">
                         <img src="{{ asset('dist') }}/landing/assets/img/lgPetik-removebg-preview.png" alt="">
                     </a></h1>
             </div>
@@ -81,7 +81,7 @@
         {{-- breadcum --}}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb d-flex">
-                <li class="breadcrumb-item"><a href="{{route('awal')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('awal') }}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Profile</li>
 
             </ol>
@@ -94,14 +94,14 @@
 
         <div class="row">
             <div class="col-md-4">
-                <div class="card" style="border: none;">{{--style="border: none;
-                    "--}}
+                <div class="card" style="border: none;">{{-- style="border: none;
+                    " --}}
                     <div class="card-body rounded">
-                        <img src="{{asset('upload'). '/'. $data->santri->foto}}" width="150px" height="150px" alt=""
-                            class="mx-auto d-block rounded-circle mb-3" style="box-shadow: 1px 1px 10px">
+                        <img src="{{ asset('upload') . '/' . $data->santri->foto }}" width="150px" height="150px"
+                            alt="" class="mx-auto d-block rounded-circle mb-3" style="box-shadow: 1px 1px 10px">
                         <h3 class="text-center"></h3>
-                        <p class="text-center mb-0 fw-bold">{{$data->santri->nama_panggil}}</p>
-                        <p class="text-center mb-0">{{$data->santri->tmp_lahir}}</p>
+                        <p class="text-center mb-0 fw-bold">{{ $data->santri->nama_panggil }}</p>
+                        <p class="text-center mb-0">{{ $data->santri->tmp_lahir }}</p>
                         <p class="text-center text-muted">- Santri 2023-2024 - </p>
                     </div>
                 </div>
@@ -121,15 +121,15 @@
                                     <div class="accordion-body">
 
                                         {{-- foto ijazah --}}
-                                        <img src="{{asset('upload'). '/'. $data->santri->ijazah}}" width="150px" height="150px"
-                                            alt="" class="mx-auto d-block rounded mb-3">
+                                        <img src="{{ asset('upload') . '/' . $data->santri->ijazah }}" width="150px"
+                                            height="150px" alt="" class="mx-auto d-block rounded mb-3">
                                         <p class="text-muted text-center">Foto Ijasah</p>
                                         {{-- foto kk --}}
-                                        <img src="{{asset('upload'). '/'. $data->santri->kk}}" width="150px" height="150px"
-                                            alt="" class="mx-auto d-block rounded mb-3">
+                                        <img src="{{ asset('upload') . '/' . $data->santri->kk }}" width="150px"
+                                            height="150px" alt="" class="mx-auto d-block rounded mb-3">
                                         <p class="text-muted text-center">Foto KK </p>
-                                        <img src="{{asset('upload'). '/'. $data->santri->rapot}}" width="150px" height="150px"
-                                            alt="" class="mx-auto d-block rounded mb-3">
+                                        <img src="{{ asset('upload') . '/' . $data->santri->rapot }}" width="150px"
+                                            height="150px" alt="" class="mx-auto d-block rounded mb-3">
                                         <p class="text-muted text-center">Foto Rapot </p>
                                     </div>
                                 </div>
@@ -145,18 +145,18 @@
                             <table class="table">
                                 <tr>
                                     <th>Nik</th>
-                                    <td>: {{$data->santri->nik}} </td>
+                                    <td>: {{ $data->santri->nik }} </td>
                                     <td></td>
 
                                 </tr>
                                 <tr>
                                     <th>Nisn</th>
-                                    <td>: {{$data->santri->nisn}}</td>
+                                    <td>: {{ $data->santri->nisn }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th>Nama Lengkap</th>
-                                    <td>: {{$data->santri->nama_lengkap}}</td>
+                                    <td>: {{ $data->santri->nama_lengkap }}</td>
                                     <td></td>
                                 </tr>
 
@@ -176,12 +176,12 @@
                                 </tr>
                                 <tr>
                                     <th>Tanggal-Lahir</th>
-                                    <td>: {{$data->santri->tgl_lahir}}</td>
+                                    <td>: {{ $data->santri->tgl_lahir }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th>No hp</th>
-                                    <td>: {{$data->santri->no_hp}}</td>
+                                    <td>: {{ $data->santri->no_hp }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -195,8 +195,9 @@
                         <div class="accordion border-none" id="accordionExample">
                             <div class="accordion-item border-none">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
                                         <b> Data Wali Santri</b>
                                     </button>
                                 </h2>
@@ -207,51 +208,120 @@
                                             <table class="table">
                                                 <tr>
                                                     <th>Nama Ayah</th>
-                                                    <td>: {{$data->santri->wali_santri->nama_ayah}} </td>
+                                                    <td>: {{ $data->santri->wali_santri->nama_ayah }} </td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tempat Tanggal lahir ayah</th>
-                                                    <td>: {{$data->santri->wali_santri->tmp_lahir_a}},
-                                                        {{$data->santri->wali_santri->tgl_lahir_a}}</td>
+                                                    <td>: {{ $data->santri->wali_santri->tmp_lahir_a }},
+                                                        {{ $data->santri->wali_santri->tgl_lahir_a }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Telp Ayah</th>
-                                                    <td>: {{$data->santri->wali_santri->no_hp_a}}</td>
+                                                    <td>: {{ $data->santri->wali_santri->no_hp_a }}</td>
                                                 </tr>
 
                                                 <tr>
                                                     <th>Pekerjaan Ayah</th>
-                                                    <td>: {{ $data->santri->wali_santri->pkj_a }}</td>
+                                                    <td>:
+                                                        <?php
+                                                        if ($data->santri->wali_santri['pkj_a'] == 1) {
+                                                            echo 'Belum/ Tidak Bekerja';
+                                                        } elseif ($data['pkj_a'] == 2) {
+                                                            echo 'Mengurus Rumah Tangga';
+                                                        } elseif ($data['pkj_a'] == 3) {
+                                                            echo 'Pegawai Negeri Sipil';
+                                                        } elseif ($data['pkj_a'] == 4) {
+                                                            echo 'TNI/ Polri';
+                                                        } elseif ($data['pkj_a'] == 5) {
+                                                            echo 'Guru/ Dosen';
+                                                        } elseif ($data['pkj_a'] == 6) {
+                                                            echo 'Karyawan Swasta';
+                                                        } elseif ($data['pkj_a'] == 7) {
+                                                            echo 'Karyawan BUMN';
+                                                        } elseif ($data['pkj_a'] == 8) {
+                                                            echo 'Profesional';
+                                                        } elseif ($data['pkj_a'] == 9) {
+                                                            echo 'Wiraswasta';
+                                                        } else {
+                                                            echo 'Buruh';
+                                                        }
+                                                        ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Penghasilan Ayah</th>
-                                                    <td>: {{ $data->santri->wali_santri->phs_a }}</td>
+                                                    <td>: <?php
+                                                        if ($data->santri->wali_santri['phs_a'] == 1) {
+                                                            echo '-';
+                                                        } elseif ($data['phs_a'] == 2) {
+                                                            echo '< 2 Juta';
+                                                        } elseif ($data['phs_a'] == 3) {
+                                                            echo '2 - 5 Juta';
+                                                        } elseif ($data['phs_a'] == 4) {
+                                                            echo '5 - 10 Juta';
+                                                        } else {
+                                                            echo '> 10 Juta';
+                                                        }
+                                                        ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Nama Ibu</th>
-                                                    <td>: {{$data->santri->wali_santri->nama_ibu}}</td>
+                                                    <td>: {{ $data->santri->wali_santri->nama_ibu }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tempat Tanggal lahir Ibu</th>
-                                                    <td>: {{$data->santri->wali_santri->tmp_lahir_i}},
-                                                        {{$data->santri->wali_santri->tgl_lahir_i}}</td>
+                                                    <td>: {{ $data->santri->wali_santri->tmp_lahir_i }},
+                                                        {{ $data->santri->wali_santri->tgl_lahir_i }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Telp Ibu</th>
-                                                    <td>: {{$data->santri->wali_santri->no_hp_i}}</td>
+                                                    <td>: {{ $data->santri->wali_santri->no_hp_i }}</td>
                                                 </tr>
 
                                                 <tr>
                                                     <th>Pekerjaan Ibu</th>
-                                                    <td>: {{ $data->santri->wali_santri->pkj_i }}</td>
+                                                    <td>:  <?php
+                                                        if ($data->santri->wali_santri['pkj_i'] == 1) {
+                                                            echo 'Belum/ Tidak Bekerja';
+                                                        } elseif ($data['pkj_a'] == 2) {
+                                                            echo 'Mengurus Rumah Tangga';
+                                                        } elseif ($data['pkj_a'] == 3) {
+                                                            echo 'Pegawai Negeri Sipil';
+                                                        } elseif ($data['pkj_a'] == 4) {
+                                                            echo 'TNI/ Polri';
+                                                        } elseif ($data['pkj_a'] == 5) {
+                                                            echo 'Guru/ Dosen';
+                                                        } elseif ($data['pkj_a'] == 6) {
+                                                            echo 'Karyawan Swasta';
+                                                        } elseif ($data['pkj_a'] == 7) {
+                                                            echo 'Karyawan BUMN';
+                                                        } elseif ($data['pkj_a'] == 8) {
+                                                            echo 'Profesional';
+                                                        } elseif ($data['pkj_a'] == 9) {
+                                                            echo 'Wiraswasta';
+                                                        } else {
+                                                            echo 'Buruh';
+                                                        }
+                                                        ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Penghasilan Ibu</th>
-                                                    <td>: {{ $data->santri->wali_santri->phs_i }}</td>
+                                                    <td>: <?php
+                                                        if ($data->santri->wali_santri['phs_i'] == 1) {
+                                                            echo '-';
+                                                        } elseif ($data['phs_a'] == 2) {
+                                                            echo '< 2 Juta';
+                                                        } elseif ($data['phs_a'] == 3) {
+                                                            echo '2 - 5 Juta';
+                                                        } elseif ($data['phs_a'] == 4) {
+                                                            echo '5 - 10 Juta';
+                                                        } else {
+                                                            echo '> 10 Juta';
+                                                        }
+                                                        ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Alamat</th>
-                                                    <td>: {{ $data->santri->wali_santri->alamat}} </td>
+                                                    <td>: {{ $data->santri->wali_santri->alamat }} </td>
                                                 </tr>
 
                                             </table>
@@ -282,7 +352,8 @@
                         <div class="mt-3">
                             <p align="left" class="text-dark"><i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email <br> pmb.petik@gmail.com</p>
-                            <p align="left" class="text-dark"><i class="fa fa-phone-square" aria-hidden="true"></i>
+                            <p align="left" class="text-dark"><i class="fa fa-phone-square"
+                                    aria-hidden="true"></i>
                                 Nomor Telepon <br>0813-9396-3363</p>
                         </div>
                     </div>

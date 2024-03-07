@@ -51,15 +51,15 @@
                         <p class="card-title fs-5 fw-bold">Data Akun</p>
 
                         <!-- form mulai -->
-                        <form action="{{ route('dataAkun.update', $data->id)}}" method="post">
+                        <form action="{{ route('dataAkun.update', $data->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row row-cols-3">
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Nama</h5>
-                                        <input type="text" name="nama" class="form-control" id=""
-                                           readonly value="<?= $data['name'] ?>">
+                                        <input type="text" name="nama" class="form-control" id="" @if ($data->santri) readonly @endif
+                                            value="<?= $data['name'] ?>">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -79,7 +79,8 @@
                                 <div class="col">
                                     <div class="card-body">
                                         <h5 class="mx-1 fw-bold">Password</h5>
-                                        <input type="text" name="password" class="form-control" value="<?= $data['password'] ?>" id="">
+                                        <input type="text" name="password" class="form-control"
+                                            value="<?= $data['password'] ?>" id="">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -93,20 +94,25 @@
                                     </div>
                                 </div>
                                 @php
-                                    $da = [$data->santri->nama_lengkap];
+                                    if ($data->santri) {
+                                        $da = [$data->santri->nama_lengkap];
+                                    } else {
+                                    }
                                 @endphp
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="mx-1 fw-bold">Santri</h5>
-                                        <select class="form-select" name="name">
-                                            <option hidden></option>
-                                            @foreach ($santri as $san)
-                                                <option <?php echo $san->nama_lengkap == $data->name ? 'selected' : ''; ?> value="<?= $san->nama_lengkap ?>">
-                                                    <?= $san->nama_lengkap ?></option>
-                                            @endforeach
-                                        </select>
+                                @if ($data->santri)
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <h5 class="mx-1 fw-bold">Santri</h5>
+                                            <select class="form-select" name="name">
+                                                <option hidden></option>
+                                                @foreach ($santri as $san)
+                                                    <option <?php echo $san->nama_lengkap == $data->name ? 'selected' : ''; ?> value="<?= $san->nama_lengkap ?>">
+                                                        <?= $san->nama_lengkap ?></option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                             <button class="btn btn-outline-success float-end me-4 mt-3" name="simpan"><i
                                     class="bi bi-save2"></i> Simpan</button>

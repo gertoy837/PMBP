@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Santri;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AkunController extends Controller
 {
@@ -45,7 +46,7 @@ class AkunController extends Controller
     
             $this->akun->save();
         }
-
+        Alert::success('Success Title', 'Data Berhasil Ditambahkan');
         return redirect()->route('dataAkun.index');
     }
 
@@ -65,14 +66,22 @@ class AkunController extends Controller
     public function update(Request $request, $dataAkun)
     {
         $akun = User::findOrFail($dataAkun);
-
-        $akun->name = $request->name;
+        if (!$request->name) {
+            $akun->name = $request->nama;
+        } else {
+            $akun->name = $request->name;
+        }
         $akun->username = $request->username;
         $akun->email = $request->email;
         $akun->password = $request->password;
         $akun->role = $request->role;
 
-        $akun->save();
+        if ($akun->isDirty()) {
+            $akun->save();
+            Alert::success('Successfull', 'Data Berhasil di Ubah');
+        } else {
+            Alert::info('Info', 'Tidak ada perubahan data');
+        }
         return redirect()->route('dataAkun.index');
     }
 
@@ -80,6 +89,7 @@ class AkunController extends Controller
     {
         $hapus = User::findOrFail($dataAkun);
         $hapus->delete();
+        Alert::success('Successfull', 'Data Berhasil di Hapus');
         return back();
     }
 }

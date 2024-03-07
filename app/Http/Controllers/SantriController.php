@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Santri;
 use App\Models\Wali_santri;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 
 class SantriController extends Controller
 {
     public $santri;
     public $wali_santri;
-  
+
     public function __construct()
     {
         $this->santri = new Santri();
@@ -79,6 +80,7 @@ class SantriController extends Controller
         $this->wali_santri->santri_id =  $this->santri->id;
 
         $this->wali_santri->save();
+        Alert::success('Success Title', 'Data Berhasil Ditambahkan');
         return redirect()->route('santri');
     }
 
@@ -123,24 +125,28 @@ class SantriController extends Controller
             $santri->tgl_lahir = $request->tgl_lahir;
             $santri->no_hp = $request->no;
 
-            $santri->save();
+            if ($santri->isDirty()) {
+                $santri->save();
 
-            $santri->wali_santri->nama_ayah = $request->nama_ayah;
-            $santri->wali_santri->tmp_lahir_a = $request->tmp_lahir_a;
-            $santri->wali_santri->tgl_lahir_a = $request->tgl_lahir_a;
-            $santri->wali_santri->no_hp_a = $request->no_hp_a;
-            $santri->wali_santri->pkj_a = $request->pkj_a;
-            $santri->wali_santri->phs_a = $request->phs_a;
-            $santri->wali_santri->nama_ibu = $request->nama_ibu;
-            $santri->wali_santri->tmp_lahir_i = $request->tmp_lahir_i;
-            $santri->wali_santri->tgl_lahir_i = $request->tgl_lahir_i;
-            $santri->wali_santri->no_hp_i = $request->no_hp_i;
-            $santri->wali_santri->pkj_i = $request->pkj_i;
-            $santri->wali_santri->phs_i = $request->phs_i;
-            $santri->wali_santri->alamat = $request->alamat;
+                $santri->wali_santri->nama_ayah = $request->nama_ayah;
+                $santri->wali_santri->tmp_lahir_a = $request->tmp_lahir_a;
+                $santri->wali_santri->tgl_lahir_a = $request->tgl_lahir_a;
+                $santri->wali_santri->no_hp_a = $request->no_hp_a;
+                $santri->wali_santri->pkj_a = $request->pkj_a;
+                $santri->wali_santri->phs_a = $request->phs_a;
+                $santri->wali_santri->nama_ibu = $request->nama_ibu;
+                $santri->wali_santri->tmp_lahir_i = $request->tmp_lahir_i;
+                $santri->wali_santri->tgl_lahir_i = $request->tgl_lahir_i;
+                $santri->wali_santri->no_hp_i = $request->no_hp_i;
+                $santri->wali_santri->pkj_i = $request->pkj_i;
+                $santri->wali_santri->phs_i = $request->phs_i;
+                $santri->wali_santri->alamat = $request->alamat;
 
-            $santri->wali_santri->save();
-
+                $santri->wali_santri->save();
+                Alert::success('Successfull', 'Data Berhasil di Ubah');
+            } else {
+                Alert::info('Info', 'Tidak ada perubahan data');
+            }
             return redirect()->route('santri');
         }
         if ($request->foto && $request->kk && $request->izajah && $request->rapot) {
@@ -174,24 +180,28 @@ class SantriController extends Controller
         $santri->ijazah = $ijazah1;
         $santri->rapot = $rapot1;
 
-        $santri->save();
+        if ($santri->isDirty()) {
+            $santri->save();
 
-        $santri->wali_santri->nama_ayah = $request->nama_ayah;
-        $santri->wali_santri->tmp_lahir_a = $request->tmp_lahir_a;
-        $santri->wali_santri->tgl_lahir_a = $request->tgl_lahir_a;
-        $santri->wali_santri->no_hp_a = $request->no_hp_a;
-        $santri->wali_santri->pkj_a = $request->pkj_a;
-        $santri->wali_santri->phs_a = $request->phs_a;
-        $santri->wali_santri->nama_ibu = $request->nama_ibu;
-        $santri->wali_santri->tmp_lahir_i = $request->tmp_lahir_i;
-        $santri->wali_santri->tgl_lahir_i = $request->tgl_lahir_i;
-        $santri->wali_santri->no_hp_i = $request->no_hp_i;
-        $santri->wali_santri->pkj_i = $request->pkj_i;
-        $santri->wali_santri->phs_i = $request->phs_i;
-        $santri->wali_santri->alamat = $request->alamat;
+            $santri->wali_santri->nama_ayah = $request->nama_ayah;
+            $santri->wali_santri->tmp_lahir_a = $request->tmp_lahir_a;
+            $santri->wali_santri->tgl_lahir_a = $request->tgl_lahir_a;
+            $santri->wali_santri->no_hp_a = $request->no_hp_a;
+            $santri->wali_santri->pkj_a = $request->pkj_a;
+            $santri->wali_santri->phs_a = $request->phs_a;
+            $santri->wali_santri->nama_ibu = $request->nama_ibu;
+            $santri->wali_santri->tmp_lahir_i = $request->tmp_lahir_i;
+            $santri->wali_santri->tgl_lahir_i = $request->tgl_lahir_i;
+            $santri->wali_santri->no_hp_i = $request->no_hp_i;
+            $santri->wali_santri->pkj_i = $request->pkj_i;
+            $santri->wali_santri->phs_i = $request->phs_i;
+            $santri->wali_santri->alamat = $request->alamat;
 
-        $santri->wali_santri->save();
-
+            $santri->wali_santri->save();
+            Alert::success('Successfull', 'Data Berhasil di Ubah');
+        } else {
+            Alert::info('Info', 'Tidak ada perubahan data');
+        }
         return redirect()->route('santri');
     }
 
@@ -208,8 +218,13 @@ class SantriController extends Controller
             File::delete($path2);
             File::delete($path3);
         }
-        $hapus->wali_santri->delete();
+
+        if ($hapus->wali_santri) {
+            $hapus->wali_santri->delete();
+        }
+
         $hapus->delete();
+        Alert::success('Successfull', 'Data Berhasil di Hapus');
         return back();
     }
 }

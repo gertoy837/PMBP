@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index')}}">
+        <a class="nav-link rounded-3 collapsed" href="{{ route('dataWaliSantri.index') }}">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data Wali Santri</span>
         </a>
     </li>
@@ -44,7 +44,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="float-end me-2 mt-4">
-                            <a href="{{ route('dataAkun.create')}}"><button class="btn btn-outline-primary">Tambah</button></a>
+                            <a href="{{ route('dataAkun.create') }}"><button
+                                    class="btn btn-outline-primary">Tambah</button></a>
                         </div>
                         <h5 class="card-title">Data Akun</h5>
 
@@ -80,14 +81,14 @@
                                                             href="{{ route('dataAkun.show', $log->id) }}">Detail</a></li>
                                                     <li><a class="dropdown-item"
                                                             href="{{ route('dataAkun.edit', $log->id) }}">Edit</a></li>
-                                                    <li><form action="{{ route('dataAkun.destroy', $log->id) }}" class="d-inline"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="submit"
-                                                            onclick="return confirm('Apakah mau di hapus?')"
-                                                            class="dropdown-item">Hapus</button>
-                                                    </form>
+                                                    <li>
+                                                        <form action="{{ route('dataAkun.destroy', $log->id) }}"
+                                                            onclick="confirmDelete(event)" class="d-inline"
+                                                            method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="dropdown-item">Hapus</button>
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </div>

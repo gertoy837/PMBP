@@ -43,8 +43,9 @@
                     <li><a class="nav-link  scrollto" href="{{ route('about') }}">About</a></li>
                     <li class="dropdown"><a href="#">
                             <span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i>
-                            <img src="{{ asset('dist/dashboard/assets/img/profile-img.jpg') }}" alt=""
-                                width="35px" height="35px" style="margin-left: 5px; border-radius:50%"></a>
+                                <img src="{{ asset('dist/dashboard/assets/img/profile-img.jpg') }}" alt=""
+                                width="35px" height="35px" style="margin-left: 5px; border-radius:50%">
+                            </a>
                         <ul>
 
                             <li>

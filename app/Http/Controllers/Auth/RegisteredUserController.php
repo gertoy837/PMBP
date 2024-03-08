@@ -45,16 +45,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $gel = rand(1,2);
-        
+        $gel = rand(1, 2);
+
         $kk = $request->kk;
         $kk1 = $kk->getClientOriginalName();
-        $kk->move(public_path() . '/upload', $kk1);        
+        $kk->move(public_path() . '/upload', $kk1);
 
         $foto = $request->foto;
         $foto1 = $foto->getClientOriginalName();
         $foto->move(public_path() . '/upload', $foto1);
-        
+
         $ijazah = $request->ijazah;
         $ijazah1 = $ijazah->getClientOriginalName();
         $ijazah->move(public_path() . '/upload', $ijazah1);
@@ -95,9 +95,13 @@ class RegisteredUserController extends Controller
             'santri_id' =>  $santri->id,
         ]);
 
-        event(new Registered([$user,$santri,$wali_santri]));
+        event(new Registered($user));
 
-        Auth::login([$user, $santri, $wali_santri]);
+        Auth::login($user);
+
+        // event(new Registered([$user,$santri,$wali_santri]));
+
+        // Auth::login([$user, $santri, $wali_santri]);
 
         // event(new Registered($santri));
 

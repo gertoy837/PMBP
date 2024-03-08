@@ -14,11 +14,13 @@ class DashboardController extends Controller
         $santri2 = Santri::all()->where('gel_id', '=', 2);
         $santri = Santri::with('Wali_santri')->paginate(5);
         $no = 5 * ($santri->currentPage() - 1); 
+        $data = Santri::all();
         return view('dashboard.dashboard', [
             'santri' => $santri,
             'santri1' => $santri1,
             'santri2' => $santri2,
             'no' => $no,
+            'data' => $data,
         ]);
     }
 

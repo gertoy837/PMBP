@@ -122,7 +122,7 @@
                                         <i class="bi bi-people"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6> {{ $santri->count() }} Santri</h6>
+                                        <h6> {{ $data->count() }} Santri</h6>
                                     </div>
                                 </div>
                             </div>

@@ -41,7 +41,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('dataWaliSantri', WaliSantriController::class);
 });
 
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth', 'role:user,admin'])->group(function () {
     Route::get('/user', [AboutController::class, 'home'])->name('awal');
     Route::get('/user/about', [AboutController::class, 'about'])->name('about');
     Route::get('/user/profile/{id}', [AboutController::class, 'index'])->name('user');

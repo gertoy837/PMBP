@@ -182,28 +182,28 @@
                                                 <label for="">Pekerjaan Ayah</label>
                                                 <select class="form-select" name="pkj_a">
                                                     <option hidden></option>
-                                                    <option value="Belum/ Tidak Bekerja">Belum/ Tidak Bekerja</option>
-                                                    <option value="Mengurus Rumah Tangga">Mengurus Rumah Tangga</option>
-                                                    <option value="Pegawai Negeri Sipil">Pegawai Negeri Sipil</option>
-                                                    <option value="TNI/ Polri">TNI/ Polri</option>
-                                                    <option value="Guru/ Dosen">Guru/ Dosen</option>
-                                                    <option value="Karyawan Swasta">Karyawan Swasta</option>
-                                                    <option value="Karyawan BUMN">Karyawan BUMN</option>
-                                                    <option value="Profesional">Profesional</option>
-                                                    <option value="Wiraswasta">Wiraswasta</option>
-                                                    <option value="Buruh">Buruh</option>
+                                                    <option value="1">Belum/ Tidak Bekerja</option>
+                                                    <option value="2">Mengurus Rumah Tangga</option>
+                                                    <option value="3">Pegawai Negeri Sipil</option>
+                                                    <option value="4">TNI/ Polri</option>
+                                                    <option value="5">Guru/ Dosen</option>
+                                                    <option value="6">Karyawan Swasta</option>
+                                                    <option value="7">Karyawan BUMN</option>
+                                                    <option value="8">Profesional</option>
+                                                    <option value="9">Wiraswasta</option>
+                                                    <option value="10">Buruh</option>
                                                 </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="">Penghasilan Ayah</label>
                                                 <select class="form-select" name="phs_a">
                                                     <option hidden></option>
-                                                    <option value="-">-</option>
-                                                    <option value="< 2 Juta">
+                                                    <option value="1">-</option>
+                                                    <option value="2">
                                                         < 2 Juta</option>
-                                                    <option value="2 - 5 Juta">2 - 5 Juta</option>
-                                                    <option value="5 - 10 Juta">5 - 10 Juta</option>
-                                                    <option value="> 10 Juta">> 10 Juta</option>
+                                                    <option value="3">2 - 5 Juta</option>
+                                                    <option value="4">5 - 10 Juta</option>
+                                                    <option value="5">> 10 Juta</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -233,28 +233,28 @@
                                                     <label for="">Pekerjaan Ibu</label>
                                                     <select class="form-select" name="pkj_i">
                                                         <option hidden></option>
-                                                        <option value="Belum/ Tidak Bekerja">Belum/ Tidak Bekerja</option>
-                                                        <option value="Mengurus Rumah Tangga">Mengurus Rumah Tangga</option>
-                                                        <option value="Pegawai Negeri Sipil">Pegawai Negeri Sipil</option>
-                                                        <option value="TNI/ Polri">TNI/ Polri</option>
-                                                        <option value="Guru / Dosen">Guru/ Dosen</option>
-                                                        <option value="Karyawan Sawasta">Karyawan Swasta</option>
-                                                        <option value="Karyawan BUMN">Karyawan BUMN</option>
-                                                        <option value="Profesional">Profesional</option>
-                                                        <option value="Wiraswasta">Wiraswasta</option>
-                                                        <option value="Buruh">Buruh</option>
+                                                        <option value="1">Belum/ Tidak Bekerja</option>
+                                                        <option value="2">Mengurus Rumah Tangga</option>
+                                                        <option value="3">Pegawai Negeri Sipil</option>
+                                                        <option value="4">TNI/ Polri</option>
+                                                        <option value="5">Guru/ Dosen</option>
+                                                        <option value="6">Karyawan Swasta</option>
+                                                        <option value="7">Karyawan BUMN</option>
+                                                        <option value="8">Profesional</option>
+                                                        <option value="9">Wiraswasta</option>
+                                                        <option value="10">Buruh</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="">Penghasilan Ibu</label>
                                                     <select class="form-select" name="phs_i">
                                                         <option hidden></option>
-                                                        <option value="-">-</option>
-                                                        <option value="< 2 Juta">
+                                                        <option value="1">-</option>
+                                                        <option value="2">
                                                             < 2 Juta</option>
-                                                        <option value="2 - 5 Juta">2 - 5 Juta</option>
-                                                        <option value="5 - 10 Juta">5 - 10 Juta</option>
-                                                        <option value="> 10 Juta">> 10 Juta</option>
+                                                        <option value="3">2 - 5 Juta</option>
+                                                        <option value="4">5 - 10 Juta</option>
+                                                        <option value="5">> 10 Juta</option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -43,9 +43,9 @@
                     <li><a class="nav-link  scrollto" href="{{ route('about') }}">About</a></li>
                     <li class="dropdown"><a href="#">
                             <span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i>
-                                <img src="{{ asset('dist/dashboard/assets/img/profile-img.jpg') }}" alt=""
+                            <img src="{{ asset('dist/dashboard/assets/img/profile-img.jpg') }}" alt=""
                                 width="35px" height="35px" style="margin-left: 5px; border-radius:50%">
-                            </a>
+                        </a>
                         <ul>
 
                             <li>
@@ -251,18 +251,18 @@
                                                 <tr>
                                                     <th>Penghasilan Ayah</th>
                                                     <td>: <?php
-                                                        if ($data->santri->wali_santri['phs_a'] == 1) {
-                                                            echo '-';
-                                                        } elseif ($data['phs_a'] == 2) {
-                                                            echo '< 2 Juta';
-                                                        } elseif ($data['phs_a'] == 3) {
-                                                            echo '2 - 5 Juta';
-                                                        } elseif ($data['phs_a'] == 4) {
-                                                            echo '5 - 10 Juta';
-                                                        } else {
-                                                            echo '> 10 Juta';
-                                                        }
-                                                        ?></td>
+                                                    if ($data->santri->wali_santri['phs_a'] == 1) {
+                                                        echo '-';
+                                                    } elseif ($data['phs_a'] == 2) {
+                                                        echo '< 2 Juta';
+                                                    } elseif ($data['phs_a'] == 3) {
+                                                        echo '2 - 5 Juta';
+                                                    } elseif ($data['phs_a'] == 4) {
+                                                        echo '5 - 10 Juta';
+                                                    } else {
+                                                        echo '> 10 Juta';
+                                                    }
+                                                    ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Nama Ibu</th>
@@ -280,45 +280,45 @@
 
                                                 <tr>
                                                     <th>Pekerjaan Ibu</th>
-                                                    <td>:  <?php
-                                                        if ($data->santri->wali_santri['pkj_i'] == 1) {
-                                                            echo 'Belum/ Tidak Bekerja';
-                                                        } elseif ($data['pkj_a'] == 2) {
-                                                            echo 'Mengurus Rumah Tangga';
-                                                        } elseif ($data['pkj_a'] == 3) {
-                                                            echo 'Pegawai Negeri Sipil';
-                                                        } elseif ($data['pkj_a'] == 4) {
-                                                            echo 'TNI/ Polri';
-                                                        } elseif ($data['pkj_a'] == 5) {
-                                                            echo 'Guru/ Dosen';
-                                                        } elseif ($data['pkj_a'] == 6) {
-                                                            echo 'Karyawan Swasta';
-                                                        } elseif ($data['pkj_a'] == 7) {
-                                                            echo 'Karyawan BUMN';
-                                                        } elseif ($data['pkj_a'] == 8) {
-                                                            echo 'Profesional';
-                                                        } elseif ($data['pkj_a'] == 9) {
-                                                            echo 'Wiraswasta';
-                                                        } else {
-                                                            echo 'Buruh';
-                                                        }
-                                                        ?></td>
+                                                    <td>: <?php
+                                                    if ($data->santri->wali_santri['pkj_i'] == 1) {
+                                                        echo 'Belum/ Tidak Bekerja';
+                                                    } elseif ($data['pkj_a'] == 2) {
+                                                        echo 'Mengurus Rumah Tangga';
+                                                    } elseif ($data['pkj_a'] == 3) {
+                                                        echo 'Pegawai Negeri Sipil';
+                                                    } elseif ($data['pkj_a'] == 4) {
+                                                        echo 'TNI/ Polri';
+                                                    } elseif ($data['pkj_a'] == 5) {
+                                                        echo 'Guru/ Dosen';
+                                                    } elseif ($data['pkj_a'] == 6) {
+                                                        echo 'Karyawan Swasta';
+                                                    } elseif ($data['pkj_a'] == 7) {
+                                                        echo 'Karyawan BUMN';
+                                                    } elseif ($data['pkj_a'] == 8) {
+                                                        echo 'Profesional';
+                                                    } elseif ($data['pkj_a'] == 9) {
+                                                        echo 'Wiraswasta';
+                                                    } else {
+                                                        echo 'Buruh';
+                                                    }
+                                                    ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Penghasilan Ibu</th>
                                                     <td>: <?php
-                                                        if ($data->santri->wali_santri['phs_i'] == 1) {
-                                                            echo '-';
-                                                        } elseif ($data['phs_a'] == 2) {
-                                                            echo '< 2 Juta';
-                                                        } elseif ($data['phs_a'] == 3) {
-                                                            echo '2 - 5 Juta';
-                                                        } elseif ($data['phs_a'] == 4) {
-                                                            echo '5 - 10 Juta';
-                                                        } else {
-                                                            echo '> 10 Juta';
-                                                        }
-                                                        ?></td>
+                                                    if ($data->santri->wali_santri['phs_i'] == 1) {
+                                                        echo '-';
+                                                    } elseif ($data['phs_a'] == 2) {
+                                                        echo '< 2 Juta';
+                                                    } elseif ($data['phs_a'] == 3) {
+                                                        echo '2 - 5 Juta';
+                                                    } elseif ($data['phs_a'] == 4) {
+                                                        echo '5 - 10 Juta';
+                                                    } else {
+                                                        echo '> 10 Juta';
+                                                    }
+                                                    ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Alamat</th>

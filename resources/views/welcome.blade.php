@@ -368,7 +368,7 @@
                                     <i class="bi bi-geo-alt"></i>
                                     <h4>Location:</h4>
                                     <p>
-                                        Jl. Mandor Basar No.54, Rangkapan Jaya, Kec. Pancoran Mas, Kota Depok, Jawa Barat
+                                        Jl. Mandor Basar No.123, Rangkapan Jaya, Kec. Pancoran Mas, Kota Depok, Jawa Barat
                                         16434
                                     </p>
                                 </div>

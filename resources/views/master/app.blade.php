@@ -140,7 +140,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>PMBP - Petik</title>
+    <title>LPK - Petik</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <link href="{{ asset('dist') }}/landing/assets/img/logopetik.jpeg" rel="icon">
@@ -197,7 +197,7 @@
 
                         <div class="mt-3">
                             <p align="left" class="text-dark"><i class="fa fa-envelope" aria-hidden="true"></i>
-                                Email <br> pmb.petik@gmail.com</p>
+                                Email <br> lpk.petik@gmail.com</p>
                             <p align="left" class="text-dark"><i class="fa fa-phone-square"
                                     aria-hidden="true"></i> Nomor Telepon <br>0813-9396-3363</p>
                         </div>

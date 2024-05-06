@@ -182,8 +182,8 @@
                 <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1"
                     data-aos="fade-up">
                     <div>
-                        <h1 class="fw-bold" style="color: #5588A3;">PMBP - PeTIK</h1>
-                        <h2>Penerimaan Mahasantri Baru Tahun Agkatan 2023/2024</h2>
+                        <h1 class="fw-bold" style="color: #5588A3;">LPK - PeTIK</h1>
+                        <h2>Lembaga Pelatihan Kerja PeTIK Tahun Agkatan 2023/2024</h2>
                         <a href="{{ route('register') }}" class="download-btn"><i class="bx bx-clipboard"></i> Daftar
                             Sekarang</a>
                     </div>
@@ -207,7 +207,7 @@
 
             <div class="container mt-0">
                 <h3>
-                    "Pencetak Mahasantri Berakhlak Mulia dan Ahli Teknologi."
+                    "Pencetak Generasi Berakhlak Mulia dan Ahli Teknologi."
                 </h3>
             </div>
         </section>
@@ -221,7 +221,7 @@
                     <div class="col-md-12">
                         <div class="card" style=" color:#5588A3">
                             <div class="card-header">
-                                <h3 class="card-title text-dark fw-bold">Data Sementara Calon Mahasantri PeTIK</h3>
+                                <h3 class="card-title text-dark fw-bold">Data Sementara Peserta Kursus LPK PeTIK</h3>
                             </div>
 
                             <div class="card-body">
@@ -315,7 +315,7 @@
                                     <li><i class="bi bi-check"></i><strong> Mampu stmembaca Al Qur’an</strong> dengan
                                         baik dan bersedia menambah hafalan Al Qur'an minimal 2 Juz.</li>
                                     <li><i class="bi bi-check"></i> <strong>Bersedia mengikuti peraturan</strong> yang
-                                        ditetapkan oleh pihak Pesantren.</li>
+                                        ditetapkan oleh pihak Lembaga.</li>
                                 </ul>
 
                             </div>
@@ -509,12 +509,12 @@
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>pmbpetik@gmail.com</p>
+                                <p>lpkpetik@gmail.com</p>
                             </div>
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+62 895635903776</p>
+                                <p>0813-9396-3363</p>
                             </div>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4504.287967701885!2d106.7778979482661!3d-6.388358101363431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e92c0df5da9d%3A0x8499222ee6779470!2sPeTIK%20(Pesantren%20Teknologi%20Informasi%20dan%20Komunikasi)%20Program%20Kuliah%20IT%20Gratis%20Binaan%20YBM%20PLN!5e0!3m2!1sid!2sid!4v1704857700718!5m2!1sid!2sid"
@@ -555,6 +555,8 @@
         </section>
       </main>
     @endsection
-  
+    @push('scripts')
+        
+
 
  
